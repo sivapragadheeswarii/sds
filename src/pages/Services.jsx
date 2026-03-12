@@ -79,20 +79,24 @@ const Services = () => {
                     <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-[100px] animate-heroPulse"></div>
 
                     <div className="container-custom text-center relative z-10">
-                        <span className="inline-block py-1 px-4 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-6 animate-fadeInUp">
+                        {/* <span className="inline-block py-1 px-4 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-6 animate-fadeInUp">
                             Our Expertise
-                        </span>
+                        </span> */}
                         <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
                             Transforming Ideas Into <br />
+                            
                             <span className="gradient-text">Digital Reality</span>
                         </h1>
                         <p className="max-w-2xl mx-auto text-muted text-lg md:text-xl mb-12 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
                             We build robust, scalable, and innovative software solutions that empower businesses to thrive in the digital age.
                         </p>
                         <div className="flex flex-wrap justify-center gap-6 animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
+                            <Link to="/contact">
+                            
+                            
                             <button className="bg-accent-gradient py-4 px-10 rounded-full font-bold hover:scale-105 transition-all shadow-lg shadow-primary/20">
                                 Get Started
-                            </button>
+                            </button></Link>
                             {/* <button className="border border-white/20 py-4 px-10 rounded-full font-bold hover:bg-white/5 transition-all backdrop-blur-sm">
                                 View Portfolio
                             </button> */}
@@ -142,14 +146,11 @@ const Services = () => {
                                 </p> */}
 
 
-
                                     <Link to={service.link}>
                                         <button className="text-primary font-semibold hover:underline">
                                             Know More →
                                         </button>
                                     </Link>
-
-
 
                                     {/* <ul className="space-y-3">
                                     {service.features.map((feat, fi) => (
@@ -180,22 +181,29 @@ const Services = () => {
                             <div className="flex flex-col lg:flex-row items-center gap-16">
                                 <div className="flex-1 space-y-8 order-2 lg:order-1">
                                     <span className="text-primary font-mono tracking-widest uppercase">Scalable Infrastructure</span>
+
                                     <h3 className="text-4xl font-bold">Cloud-Native Architecture For Global Scale</h3>
                                     <p className="text-muted leading-relaxed">
                                         We design systems that don't just work today, but evolve with your business. Using microservices and serverless paradigms, we ensure 99.9% uptime and seamless scaling.
                                     </p>
+
+
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="bg-white/5 p-4 rounded-xl border border-white/10 uppercase text-xs tracking-widest font-bold">REST APIs</div>
                                         <div className="bg-white/5 p-4 rounded-xl border border-white/10 uppercase text-xs tracking-widest font-bold">JWT Authentication</div>
                                         <div className="bg-white/5 p-4 rounded-xl border border-white/10 uppercase text-xs tracking-widest font-bold">Scalable Backend</div>
                                         <div className="bg-white/5 p-4 rounded-xl border border-white/10 uppercase text-xs tracking-widest font-bold">Database Optimization</div>
                                     </div>
+
                                 </div>
+
                                 <div className="flex-1 order-1 lg:order-2 relative group">
                                     <div className="absolute inset-0 bg-primary/20 blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
                                     <div className="glass-premium p-4 rounded-[40px] transform rotate-3 transition-transform group-hover:rotate-0 duration-700">
                                         <div className="aspect-video bg-dark/50 rounded-[30px] border border-white/10 overflow-hidden flex items-center justify-center">
+                                           
                                             <div className="text-6xl animate-float">☁️</div>
+                                     
                                         </div>
                                     </div>
                                 </div>
@@ -204,9 +212,11 @@ const Services = () => {
 
                             <div className="flex flex-col lg:flex-row items-center gap-16">
                                 <div className="flex-1 relative group">
+
                                     <div className="absolute inset-0 bg-secondary/20 blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
                                     <div className="glass-premium p-4 rounded-[40px] transform -rotate-3 transition-transform group-hover:rotate-0 duration-700">
                                         <div className="aspect-video bg-dark/50 rounded-[30px] border border-white/10 overflow-hidden flex items-center justify-center">
+                                         
                                             <div className="text-6xl animate-float" style={{ animationDelay: '1s' }}>🎨</div>
                                         </div>
                                     </div>
@@ -217,6 +227,7 @@ const Services = () => {
                                     <p className="text-muted leading-relaxed">
                                         Design is not just how it looks, but how it works. Our design philosophy centers on the user journey, ensuring every pixel serves a purpose and every interaction feels intuitive.
                                     </p>
+
                                     <ul className="space-y-4">
                                         <li className="flex items-center gap-4">
                                             <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">01</div>
@@ -245,6 +256,7 @@ const Services = () => {
                     <div className="container-custom">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl font-bold mb-4 uppercase tracking-[0.2em] opacity-50">Our Tech Stack</h2>
+
                             <div className="h-1 w-20 bg-primary mx-auto"></div>
                         </div>
 
@@ -266,13 +278,19 @@ const Services = () => {
                 {/* why partner trust */}
 
 
+
+ 
+
                 <section className="py-24 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 -z-10"></div>
+
                     <div className="container-custom">
                         <div className="flex flex-col lg:flex-row gap-16 items-center">
+
                             <div className="flex-1">
                                 <h2 className="section-title">Why Partners <br /> <span className="gradient-text">Trust Us</span></h2>
                                 <p className="text-muted mb-10">
+
                                     Over the years, we've refined our approach to deliver quality that speaks for itself. We don't just build software; we build long-term success.
                                 </p>
                                 <div className="space-y-6">
@@ -282,10 +300,12 @@ const Services = () => {
                                         { title: 'Transparent Progress', desc: 'Real-time updates and weekly demos throughout the project.' }
                                     ].map((item, i) => (
                                         <div key={i} className="flex gap-6 p-6 rounded-2xl glass hover:bg-white/5 transition-colors border border-white/5">
+
                                             <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent-gradient flex items-center justify-center font-bold text-dark">
                                                 {i + 1}
                                             </div>
                                             <div>
+
                                                 <h4 className="text-xl font-bold mb-1">{item.title}</h4>
                                                 <p className="text-muted text-sm">{item.desc}</p>
                                             </div>
@@ -298,8 +318,10 @@ const Services = () => {
                                 <div className="relative aspect-square max-w-md mx-auto">
                                     <div className="absolute inset-0 border-[20px] border-white/5 rounded-full animate-rotateCustom"></div>
                                     <div className="absolute inset-10 border-[1px] border-primary/20 rounded-full animate-heroPulse"></div>
+                              
                                     <div className="absolute inset-20 bg-accent-gradient rounded-full opacity-10 animate-pulse"></div>
                                     <div className="absolute inset-0 flex items-center justify-center">
+
                                         <div className="text-8xl font-black text-white/10 select-none">SDS</div>
                                     </div>
                                 </div>
@@ -322,6 +344,7 @@ const Services = () => {
                         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
 
                             <div className="hidden md:block absolute top-[60px] left-0 w-full h-[2px] bg-white/5 -z-10">
+                        
                                 <div className="h-full bg-primary animate-growLine" style={{ animationDelay: '2s' }}></div>
                             </div>
 

@@ -22,7 +22,7 @@ const Counter = ({ end, label }) => {
 
   return (
     <div className="glass p-8 rounded-xl hover:scale-105 transition duration-300">
-      <h3 className="text-4xl font-bold text-primary">{count}+</h3>
+      <h3 className="text-6xl font-bold text-primary">{count}+</h3>
       <p className="text-muted mt-2">{label}</p>
     </div>
   );

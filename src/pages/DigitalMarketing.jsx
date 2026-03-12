@@ -50,7 +50,7 @@ const DigitalMarketing = () => {
           </div>
         </section>
 
-
+{/* ----------------------------------------------------------------------------------------------------------------------------------------------------- */}
         <section className="py-12">
           <div className="container-custom flex justify-center">
             <div className="w-full max-w-4xl glass-premium p-10 rounded-[50px] border border-white/10 relative overflow-hidden group">
@@ -81,7 +81,7 @@ const DigitalMarketing = () => {
             </div>
           </div>
         </section>
-
+{/* ----------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
         <section className="py-24">
           <div className="container-custom">
@@ -100,7 +100,7 @@ const DigitalMarketing = () => {
             </div>
           </div>
         </section>
-
+{/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
         <section className="py-24 bg-white/[0.02] border-y border-white/5">
           <div className="container-custom">
@@ -117,10 +117,11 @@ const DigitalMarketing = () => {
             </div>
           </div>
         </section>
-
+{/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
         <section className="py-24">
           <div className="container-custom text-center">
+            <div className="glass-premium p-12 rounded-[50px] text-center border border-primary/20 bg-primary/[0.02]">
             <div className="max-w-3xl mx-auto space-y-10">
               <h2 className="text-4xl font-bold">Grow Your ROI Today</h2>
               <p className="text-muted text-lg leading-relaxed">
@@ -139,7 +140,7 @@ const DigitalMarketing = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </div></div>
         </section>
       </div>
     </div>

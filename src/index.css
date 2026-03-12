@@ -65,6 +65,34 @@
   .section-title {
     @apply text-3xl md:text-5xl font-black uppercase tracking-tight mb-8;
   }
+
+  .blueprint-bg {
+    position: relative;
+    background-color: var(--bg-dark);
+    background-image:
+      linear-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 210, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(rgba(0, 210, 255, 0.02) 2px, transparent 2px),
+      linear-gradient(90deg, rgba(0, 210, 255, 0.02) 2px, transparent 2px);
+    background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+  }
+
+  .blueprint-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, transparent, var(--bg-dark) 80%);
+    pointer-events: none;
+  }
+
+  .blueprint-decoration {
+    position: absolute;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: rgba(0, 210, 255, 0.2);
+    pointer-events: none;
+    z-index: 0;
+  }
 }
 
 
@@ -348,10 +376,179 @@
   transform: translateZ(200px);
 }
 
+@keyframes terminalScroll {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(120px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(120px) rotate(-360deg);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    filter: drop-shadow(0 0 5px var(--primary));
+  }
+
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 15px var(--primary));
+  }
+}
+
+.animate-terminal {
+  animation: terminalScroll 20s linear infinite;
+}
+
+.animate-orbit {
+  animation: orbit 15s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
 .translate-z-40 {
   transform: translateZ(400px);
 }
 
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes grid-pulse {
+  0% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes typewriting {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.animate-scan {
+  animation: scanline 4s linear infinite;
+}
+
+.animate-grid-pulse {
+  animation: grid-pulse 4s ease-in-out infinite;
+}
+
+.typewriter-text {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriting 2s steps(40, end);
+}
+
+.border-glow-primary {
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+@keyframes logo-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes letter-spacing-glow {
+  0%, 100% {
+    letter-spacing: 0.5em;
+    filter: drop-shadow(0 0 5px rgba(0, 210, 255, 0.2));
+  }
+  50% {
+    letter-spacing: 0.65em;
+    filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.6));
+  }
+}
+
+.animate-logo-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.2) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: logo-shimmer 3s infinite linear;
+}
+
+.animate-logo-glow {
+  animation: letter-spacing-glow 4s ease-in-out infinite;
+}
+
+@keyframes logo-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-logo-orbit {
+  animation: logo-orbit 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 40s linear infinite;
+}
+
+.marquee-container {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }

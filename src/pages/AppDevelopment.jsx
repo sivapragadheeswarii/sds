@@ -49,7 +49,7 @@ const AppDevelopment = () => {
             </p>
           </div>
         </section>
-
+{/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
         <section className="py-12">
           <div className="container-custom flex justify-center">
             <div className="relative w-full max-w-sm aspect-[9/16] glass-premium rounded-[3rem] border-4 border-white/10 p-2 shadow-2xl animate-float">
@@ -58,6 +58,7 @@ const AppDevelopment = () => {
                 <div className="flex justify-between items-center w-full">
                   <div className="w-8 h-8 rounded-full bg-accent-gradient"></div>
                   <div className="flex gap-1">
+                    
                     <div className="w-1 h-1 rounded-full bg-white/20"></div>
                     <div className="w-1 h-1 rounded-full bg-white/20"></div>
                   </div>
@@ -108,6 +109,7 @@ const AppDevelopment = () => {
         <section className="py-24">
           <div className="container-custom">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
               {mobileFeatures.map((feature, i) => (
                 <div key={i} className="glass-premium p-10 rounded-3xl hover:-translate-y-4 transition-all duration-500 group border border-white/5">
                   <div className="text-5xl mb-6 bg-white/5 w-16 h-16 flex items-center justify-center rounded-2xl group-hover:bg-secondary group-hover:text-white transition-colors duration-500">
@@ -122,7 +124,7 @@ const AppDevelopment = () => {
             </div>
           </div>
         </section>
-
+{/* ---------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
         <section className="py-24 relative overflow-hidden">
           <div className="container-custom relative z-10">
@@ -153,7 +155,7 @@ const AppDevelopment = () => {
           </div>
         </section>
 
-
+{/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
         <section className="py-24 bg-white/[0.02] border-y border-white/5">
           <div className="container-custom">
             <h2 className="text-2xl font-bold mb-16 text-center uppercase tracking-[0.3em] opacity-50">Mobile Technology Stack</h2>
@@ -162,6 +164,7 @@ const AppDevelopment = () => {
                 <div key={i} className="flex flex-col items-center group cursor-pointer transition-all duration-300 hover:scale-110">
                   <div className="text-5xl mb-4 drop-shadow-[0_0_10px_rgba(157,80,187,0.2)] grayscale transition-all group-hover:grayscale-0">
                     {tech.icon}
+
                   </div>
                   <span className="text-xs font-mono text-muted group-hover:text-secondary">{tech.name}</span>
                 </div>
@@ -169,29 +172,34 @@ const AppDevelopment = () => {
             </div>
           </div>
         </section>
-
+{/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
         <section className="py-24">
           <div className="container-custom text-center">
+            <div className="glass-premium p-12 rounded-[50px] text-center border border-primary/20 bg-primary/[0.02]">
             <div className="max-w-3xl mx-auto space-y-10">
               <h2 className="text-4xl font-bold">Launch Your App Today</h2>
+
               <p className="text-muted text-lg leading-relaxed">
                 Whether you're a startup looking for an MVP or an enterprise needing a complex mobile solution, our experts are ready to turn your vision into a featured app.
               </p>
+
               <div className="flex flex-wrap justify-center gap-6">
                 <Link to="/contact">
                   <button className="bg-accent-gradient py-4 px-12 rounded-full font-bold hover:scale-105 transition-all shadow-lg text-lg">
                     Build My App
                   </button>
+
                 </Link>
                 <Link to="/services">
                   <button className="border border-white/20 py-4 px-12 rounded-full font-bold hover:bg-white/5 transition-all text-lg">
                     Back to Services
                   </button>
                 </Link>
+
               </div>
             </div>
-          </div>
+          </div></div>
         </section>
       </div>
     </div>

@@ -54,7 +54,7 @@ const WebDevelopment = () => {
           </div>
         </section>
 
-
+        {/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
         <section className="py-24">
           <div className="container-custom">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -75,7 +75,7 @@ const WebDevelopment = () => {
             </div>
           </div>
         </section>
-
+        {/* -------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
         <section className="py-24 bg-white/[0.02] border-y border-white/5">
           <div className="container-custom">
@@ -94,7 +94,7 @@ const WebDevelopment = () => {
             </div>
           </div>
         </section>
-
+        {/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */}
 
         <section className="py-24 relative overflow-hidden">
           <div className="container-custom">
@@ -105,7 +105,7 @@ const WebDevelopment = () => {
                   Our web development workflow is built on agile principles, ensuring rapid delivery without compromising on quality or security. Every project undergoes rigorous testing and optimization before it hits production.
                 </p>
 
-                
+
                 <Link to="/services" className="inline-block border border-primary/30 py-4 px-10 rounded-full font-bold hover:bg-primary/5 transition-all text-primary">
                   EXPLORE OTHER SERVICES
                 </Link>
@@ -121,16 +121,26 @@ const WebDevelopment = () => {
           </div>
         </section>
 
-
+        {/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
         <section className="py-20">
           <div className="container-custom">
             <div className="glass-premium p-12 rounded-[50px] text-center border border-primary/20 bg-primary/[0.02]">
               <h2 className="text-3xl md:text-5xl font-black mb-8">Ready to launch your <br /> web presence?</h2>
-              <Link to="/contact">
-                <button className="bg-accent-gradient py-4 px-12 rounded-full font-bold hover:scale-105 transition-all shadow-lg shadow-primary/20">
-                  START A CONVERSATION
-                </button>
-              </Link>
+              <p className="text-blue-100/40 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                From high-performance MVPs to enterprise-scale systems, we engineer the digital foundations of your business success.
+              </p>
+              <div className="flex flex-wrap justify-center gap-6">
+                <Link to="/contact">
+                  <button className="bg-accent-gradient py-4 px-12 rounded-full font-bold hover:scale-105 transition-all shadow-lg text-lg">
+                    Build My App
+                  </button>
+                </Link>
+                <Link to="/services">
+                  <button className="border border-white/20 py-4 px-12 rounded-full font-bold hover:bg-white/5 transition-all text-lg">
+                    Back to Services
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>

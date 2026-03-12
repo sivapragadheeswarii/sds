@@ -59,7 +59,7 @@ const HeroVisual = () => {
                         </div>
                     </div>
                     <div className="p-6 flex flex-col h-full justify-between">
-                        <span className="text-[9px] text-white/30 font-bold uppercase tracking-[0.4em]">Core_Logic.v2</span>
+                        <span className="text-[9px] text-white/30 font-bold uppercase tracking-[0.4em]">Core_Logic</span>
                         <div className="flex gap-4">
                             <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">⚡</div>
                             <div className="flex-1 space-y-2 py-2">

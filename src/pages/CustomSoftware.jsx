@@ -50,7 +50,7 @@ const CustomSoftware = () => {
             </p>
           </div>
         </section>
-
+{/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
       
         <section className="py-12">
           <div className="container-custom flex justify-center">
@@ -80,7 +80,7 @@ const CustomSoftware = () => {
           </div>
         </section>
 
-       
+       {/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
         <section className="py-24">
           <div className="container-custom">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -99,7 +99,7 @@ const CustomSoftware = () => {
           </div>
         </section>
 
-      
+  {/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------     */}
         <section className="py-24 bg-white/[0.02] border-y border-white/5">
           <div className="container-custom">
             <h2 className="text-2xl font-bold mb-16 text-center uppercase tracking-[0.3em] opacity-50">The Engineering Stack</h2>
@@ -116,9 +116,10 @@ const CustomSoftware = () => {
           </div>
         </section>
 
-      
+  {/* --------------------------------------------------------------------------------------------------------------------------------------------------------     */}
         <section className="py-24">
           <div className="container-custom text-center">
+            <div className="glass-premium p-12 rounded-[50px] text-center border border-primary/20 bg-primary/[0.02]">
             <div className="max-w-3xl mx-auto space-y-10">
               <h2 className="text-4xl font-bold">Build Your Vision With Us</h2>
               <p className="text-muted text-lg leading-relaxed">
@@ -137,7 +138,7 @@ const CustomSoftware = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </div></div>
         </section>
       </div>
     </div>
