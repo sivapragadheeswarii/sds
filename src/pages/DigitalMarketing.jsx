@@ -5,19 +5,25 @@ import { Link } from "react-router-dom";
 const DigitalMarketing = () => {
   const marketingFeatures = [
     {
+      id: 'MKT_SPEC_01',
       title: "Social Media Dominance",
       icon: "📢",
-      desc: "Strategic social campaigns that build community, increase brand awareness, and drive engagement."
+      desc: "Strategic social campaigns that build community, increase brand awareness, and drive engagement.",
+      metric: 'REACH_MAX'
     },
     {
+      id: 'MKT_SPEC_02',
       title: "ROI-Focused PPC",
       icon: "💰",
-      desc: "Precision-targeted paid advertising that maximizes your budget and delivers measurable results."
+      desc: "Precision-targeted paid advertising that maximizes your budget and delivers measurable results.",
+      metric: 'CONV_OPT'
     },
     {
+      id: 'MKT_SPEC_03',
       title: "Content Excellence",
       icon: "✍️",
-      desc: "Compelling storytelling and multimedia content that resonates with your audience and builds trust."
+      desc: "Compelling storytelling and multimedia content that resonates with your audience and builds trust.",
+      metric: 'ENGAGE_X'
     }
   ];
 
@@ -37,14 +43,14 @@ const DigitalMarketing = () => {
 
         <section className="relative pt-32 pb-20 overflow-hidden">
           <div className="container-custom text-center relative z-10">
-            <span className="inline-block py-1 px-4 rounded-full border border-secondary/30 bg-secondary/5 text-secondary text-sm font-medium mb-6 animate-fadeInUp">
+            <span className="inline-block py-1 px-4 rounded-full border border-secondary/30 bg-secondary/5 text-secondary text-[10px] md:text-sm font-medium mb-6 animate-fadeInUp">
               Precision Marketing & Growth
             </span>
-            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+            <h1 className="text-4xl md:text-7xl font-black mb-8 leading-tight animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
               Scale Your <br />
               <span className="gradient-text">Digital Presence</span>
             </h1>
-            <p className="max-w-2xl mx-auto text-muted text-lg md:text-xl mb-12 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
+            <p className="max-w-2xl mx-auto text-muted text-base md:text-xl mb-12 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
               We combine data analytics with creative strategy to deliver high-impact digital marketing solutions that convert visitors into loyal customers.
             </p>
           </div>
@@ -53,29 +59,70 @@ const DigitalMarketing = () => {
 {/* ----------------------------------------------------------------------------------------------------------------------------------------------------- */}
         <section className="py-12">
           <div className="container-custom flex justify-center">
-            <div className="w-full max-w-4xl glass-premium p-10 rounded-[50px] border border-white/10 relative overflow-hidden group">
-              <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="w-full max-w-4xl glass-premium p-8 md:p-12 rounded-3xl md:rounded-[50px] border border-white/10 relative overflow-hidden group bg-slate-900/40 backdrop-blur-2xl shadow-2xl">
+              <div className="relative aspect-[4/5] md:aspect-[21/9] w-full flex items-center justify-center">
+                {/* SVG Matrix Layer */}
+                <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 800 300">
+                  <defs>
+                    <pattern id="grid-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <circle cx="1" cy="1" r="1" fill="var(--secondary)" opacity="0.3" />
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid-dots)" />
+                  
+                  {/* Connection Paths */}
+                  <g className="stroke-secondary/10 fill-none stroke-px">
+                    <path d="M 0 150 L 800 150" />
+                    <path d="M 200 0 L 200 300" />
+                    <path d="M 400 0 L 400 300" />
+                    <path d="M 600 0 L 600 300" />
+                  </g>
 
-                <div className="flex flex-col gap-2 w-full md:w-1/2">
-                  <div className="h-12 bg-primary/20 rounded-xl border border-primary/30 flex items-center justify-center text-[10px] font-mono tracking-widest group-hover:bg-primary/30 transition-all">AWARENESS (100%)</div>
-                  <div className="h-12 bg-primary/15 rounded-xl border border-primary/20 flex items-center justify-center text-[10px] font-mono tracking-widest w-[80%] mx-auto">INTEREST (60%)</div>
-                  <div className="h-12 bg-primary/10 rounded-xl border border-primary/10 flex items-center justify-center text-[10px] font-mono tracking-widest w-[40%] mx-auto">DECISION (20%)</div>
-                  <div className="h-12 bg-primary/10 rounded-xl border border-primary/15 flex items-center justify-center text-[10px] font-mono tracking-widest w-[20%] mx-auto">ACTION (5%)</div>
-                  {/* <div className="h-12 bg-primary/05 rounded-xl flex items-center justify-center text-[10px] font-mono tracking-widest w-[15%] mx-auto shadow-[0_0_20px_rgba(0,210,255,0.4)]">ACTION (5%)</div> */}
+                  {/* Flow Flux */}
+                  <rect x="0" y="148" width="4" height="4" fill="var(--secondary)" filter="url(#hologram-glow)">
+                    <animate attributeName="x" from="0" to="800" dur="4s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="0" y="148" width="4" height="4" fill="var(--secondary)" filter="url(#hologram-glow)">
+                    <animate attributeName="x" from="0" to="800" dur="4s" repeatCount="indefinite" begin="2s" />
+                  </rect>
+                </svg>
+
+                <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-4 gap-6 px-4 md:px-10 items-center">
+                  <div className="p-4 md:p-6 rounded-2xl bg-white/5 border border-white/5 text-center group/metric hover:border-secondary/30 transition-all backdrop-blur-md">
+                    <div className="text-[10px] font-mono text-secondary/60 mb-2 uppercase tracking-widest">AWARE_IN</div>
+                    <div className="text-2xl md:text-3xl font-black text-white">100%</div>
+                    <div className="mt-2 md:mt-3 flex gap-1 justify-center">
+                      <div className="w-1 h-3 bg-secondary/40 animate-pulse"></div>
+                      <div className="w-1 h-3 bg-secondary/40 animate-pulse" style={{ animationDelay: '0.1s' }}></div>
+                      <div className="w-1 h-3 bg-secondary/40 animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                    </div>
+                  </div>
+
+                  <div className="md:col-span-2 relative flex flex-col items-center">
+                    <div className="w-40 h-40 md:w-48 md:h-48 rounded-[2rem] bg-secondary/5 border border-secondary/20 flex flex-center items-center justify-center relative animate-pulse shadow-[0_0_50px_rgba(157,80,187,0.1)]">
+                      <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border border-secondary/10 border-dashed animate-spin-slow absolute"></div>
+                      <div className="flex flex-col items-center">
+                        <span className="text-3xl md:text-4xl mb-2">⚙️</span>
+                        <span className="text-[6px] md:text-[8px] font-mono text-secondary tracking-widest uppercase">Growth_Engine_V.3</span>
+                      </div>
+                    </div>
+                    {/* Lateral Status Lines */}
+                    <div className="absolute left-0 top-1/2 -translate-x-full h-px w-10 bg-gradient-to-r from-transparent to-secondary/20 hidden md:block"></div>
+                    <div className="absolute right-0 top-1/2 translate-x-full h-px w-10 bg-gradient-to-l from-transparent to-secondary/20 hidden md:block"></div>
+                  </div>
+
+                  <div className="p-4 md:p-6 rounded-2xl bg-white/5 border border-white/5 text-center group/metric hover:border-secondary/30 transition-all backdrop-blur-md">
+                    <div className="text-[10px] font-mono text-secondary/60 mb-2 uppercase tracking-widest">CONV_EXIT</div>
+                    <div className="text-2xl md:text-3xl font-black text-secondary">4.8x</div>
+                    <div className="mt-1 text-[8px] font-mono text-green-500 uppercase tracking-widest animate-pulse">ROI_STABLE</div>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 w-full md:w-1/2">
-                  <div className="p-6 bg-white/5 rounded-2xl border border-white/10 text-center">
-                    <div className="text-2xl font-bold gradient-text">+250%</div>
-                    <div className="text-[10px] text-muted uppercase mt-1">Lead Gen</div>
-                  </div>
-                  <div className="p-6 bg-white/5 rounded-2xl border border-white/10 text-center">
-                    <div className="text-2xl font-bold text-primary">4.8x</div>
-                    <div className="text-[10px] text-muted uppercase mt-1">ROAS</div>
-                  </div>
-                  <div className="p-6 bg-white/5 rounded-2xl border border-white/10 text-center col-span-2">
-                    <div className="text-xl font-mono text-green-400">ACTIVE_REMARKETING...</div>
-                  </div>
+                {/* Technical readouts */}
+                <div className="absolute bottom-4 md:bottom-6 right-6 md:right-10 flex flex-wrap justify-end gap-3 md:gap-6 text-[6px] md:text-[8px] font-mono text-white/30 uppercase tracking-[0.2em] md:tracking-[0.3em]">
+                  <span>REMARKET: ACTIVE</span>
+                  <span>SYNC_MODE: DYNAMIC</span>
+                  <span>LATENCY: 12ms</span>
                 </div>
               </div>
             </div>
@@ -85,16 +132,33 @@ const DigitalMarketing = () => {
 
         <section className="py-24">
           <div className="container-custom">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               {marketingFeatures.map((feature, i) => (
-                <div key={i} className="glass-premium p-10 rounded-3xl hover:-translate-y-4 transition-all duration-500 group border border-white/5">
-                  <div className="text-5xl mb-6 bg-white/5 w-16 h-16 flex items-center justify-center rounded-2xl group-hover:bg-accent-gradient transition-colors duration-500">
-                    {feature.icon}
+                <div 
+                  key={i} 
+                  className="stagger-reveal animate-stagger"
+                  style={{ animationDelay: `${i * 0.1}s` }}
+                >
+                  <div className="glass-premium rounded-3xl p-0 overflow-hidden border border-white/5 hover:border-secondary/40 shadow-2xl transition-all duration-700 card-3d bg-slate-900/40 backdrop-blur-xl group">
+                    {/* Technical Top Bar */}
+                    <div className="flex items-center justify-between px-6 py-3 border-b border-white/5 bg-black/20">
+                      <span className="text-[10px] font-mono text-secondary/60 tracking-widest uppercase">{feature.id}</span>
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-1 h-1 bg-secondary animate-pulse rounded-full"></div>
+                        <span className="text-[9px] font-mono text-white/30 tracking-tighter uppercase">{feature.metric}</span>
+                      </div>
+                    </div>
+
+                    <div className="p-10">
+                      <div className="text-5xl mb-8 bg-white/5 w-16 h-16 flex items-center justify-center rounded-2xl group-hover:bg-secondary/20 transition-colors duration-500">
+                        {feature.icon}
+                      </div>
+                      <h3 className="text-2xl font-bold mb-4 tracking-tight uppercase group-hover:text-secondary transition-colors">{feature.title}</h3>
+                      <p className="text-muted leading-relaxed text-sm h-10 overflow-hidden line-clamp-2">
+                        {feature.desc}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-                  <p className="text-muted leading-relaxed">
-                    {feature.desc}
-                  </p>
                 </div>
               ))}
             </div>
@@ -121,20 +185,20 @@ const DigitalMarketing = () => {
 
         <section className="py-24">
           <div className="container-custom text-center">
-            <div className="glass-premium p-12 rounded-[50px] text-center border border-primary/20 bg-primary/[0.02]">
-            <div className="max-w-3xl mx-auto space-y-10">
-              <h2 className="text-4xl font-bold">Grow Your ROI Today</h2>
-              <p className="text-muted text-lg leading-relaxed">
+            <div className="glass-premium p-8 md:p-12 rounded-3xl md:rounded-[50px] text-center border border-primary/20 bg-primary/[0.02]">
+            <div className="max-w-3xl mx-auto space-y-8 md:space-y-10">
+              <h2 className="text-3xl md:text-4xl font-bold">Grow Your ROI Today</h2>
+              <p className="text-muted text-base md:text-lg leading-relaxed">
                 Stop guessing and start growing. Our team will help you build a marketing engine that consistently delivers results and scales your business.
               </p>
-              <div className="flex flex-wrap justify-center gap-6">
+              <div className="flex flex-wrap justify-center gap-4 md:gap-6">
                 <Link to="/contact">
-                  <button className="bg-accent-gradient py-4 px-12 rounded-full font-bold hover:scale-105 transition-all shadow-lg text-lg">
+                  <button className="bg-accent-gradient py-3 md:py-4 px-8 md:px-12 rounded-full font-bold hover:scale-105 transition-all shadow-lg text-base md:text-lg">
                     Book Strategy Session
                   </button>
                 </Link>
                 <Link to="/services">
-                  <button className="border border-white/20 py-4 px-12 rounded-full font-bold hover:bg-white/5 transition-all text-lg">
+                  <button className="border border-white/20 py-3 md:py-4 px-8 md:px-12 rounded-full font-bold hover:bg-white/5 transition-all text-base md:text-lg">
                     View Other Services
                   </button>
                 </Link>

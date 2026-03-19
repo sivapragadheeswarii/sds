@@ -13,6 +13,10 @@ import AppDevelopment from './pages/AppDevelopment'
 import DigitalMarketing from './pages/DigitalMarketing'
 import GraphicDesign from './pages/GraphicDesign'
 import SEO from './pages/SEO'
+import Careers from './pages/Careers'
+import EcommerceManagement from './pages/EcommerceManagement'
+import AdminDashboard from './pages/AdminDashboard'
+
 function App() {
   return (
     <div className="min-h-screen flex flex-col relative overflow-x-hidden">
@@ -30,7 +34,10 @@ function App() {
           <Route path="/services/seo" element={<SEO />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/services/ecommerce-management" element={<EcommerceManagement />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </main>
       <Footer />

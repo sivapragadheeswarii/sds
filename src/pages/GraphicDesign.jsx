@@ -5,19 +5,28 @@ import { Link } from "react-router-dom";
 const GraphicDesign = () => {
   const designServices = [
     {
+      id: 'ASSET_01',
       title: "Brand Identity",
       icon: "🎨",
-      desc: "We craft unique logos, color palettes, and typography that define and elevate your brand's visual voice."
+      desc: "We craft unique logos, color palettes, and typography that define and elevate your brand's visual voice.",
+      res: 'VECTOR_DPI',
+      engine: 'CURVE_GEN'
     },
     {
+      id: 'ASSET_02',
       title: "UI/UX Prototyping",
       icon: "💻",
-      desc: "High-fidelity prototypes and interface designs that are as beautiful as they are functional."
+      desc: "High-fidelity prototypes and interface designs that are as beautiful as they are functional.",
+      res: '4K_DYNAMIC',
+      engine: 'FIGMA_CORE'
     },
     {
+      id: 'ASSET_03',
       title: "Digital Creatives",
       icon: "🖼️",
-      desc: "Engaging social media graphics, ad banners, and marketing materials that capture attention instantly."
+      desc: "Engaging social media graphics, ad banners, and marketing materials that capture attention instantly.",
+      res: 'HIGH_RES',
+      engine: 'RASTER_GEN'
     }
   ];
 
@@ -108,17 +117,44 @@ const GraphicDesign = () => {
 
         <section className="py-24">
           <div className="container-custom">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               {designServices.map((service, i) => (
-                <div key={i} className="glass-premium p-10 rounded-3xl hover:-translate-y-4 transition-all duration-500 group border border-white/5">
-                  <div className="text-5xl mb-6 bg-white/5 w-16 h-16 flex items-center justify-center rounded-2xl group-hover:bg-accent-gradient group-hover:text-dark transition-colors duration-500">
-                    {service.icon}
+                <div 
+                  key={i} 
+                  className="stagger-reveal animate-stagger"
+                  style={{ animationDelay: `${i * 0.1}s` }}
+                >
+                  <div className="glass-premium rounded-3xl p-0 overflow-hidden border border-white/5 hover:border-primary/40 shadow-2xl transition-all duration-700 card-3d bg-slate-900/40 backdrop-blur-xl group">
+                    {/* Technical Top Bar */}
+                    <div className="flex items-center justify-between px-6 py-3 border-b border-white/5 bg-black/20">
+                      <span className="text-[10px] font-mono text-primary/60 tracking-widest uppercase">{service.id}</span>
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-1 h-1 bg-primary animate-pulse rounded-full"></div>
+                        <span className="text-[9px] font-mono text-white/30 tracking-tighter">RENDER_READY</span>
+                      </div>
+                    </div>
+
+                    <div className="p-10">
+                      <div className="text-5xl mb-8 bg-white/5 w-16 h-16 flex items-center justify-center rounded-2xl group-hover:scale-110 transition-transform duration-500">
+                        {service.icon}
+                      </div>
+                      <h3 className="text-2xl font-bold mb-4 tracking-tight uppercase group-hover:text-primary transition-colors">{service.title}</h3>
+                      <p className="text-muted leading-relaxed text-sm mb-10 h-10 overflow-hidden line-clamp-2">
+                        {service.desc}
+                      </p>
+
+                      <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/5">
+                        <div className="space-y-1">
+                          <p className="text-[8px] font-mono text-white/20 uppercase tracking-tighter">Resolution</p>
+                          <p className="text-[10px] font-mono text-white/60 tracking-widest">{service.res}</p>
+                        </div>
+                        <div className="space-y-1 text-right">
+                          <p className="text-[8px] font-mono text-white/20 uppercase tracking-tighter">Engine</p>
+                          <p className="text-[10px] font-mono text-white/60 tracking-widest">{service.engine}</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                  <p className="text-muted leading-relaxed">
-                    {service.desc}
-                  </p>
                 </div>
               ))}
             </div>

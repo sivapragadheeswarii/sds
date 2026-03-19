@@ -9,109 +9,166 @@ const Courses = () => {
     const [demoFormData, setDemoFormData] = useState({
         name: '',
         mobile: '',
-        year: '',
+        email: '',
         course: ''
     });
     const formRef = useRef();
 
-    const handleDemoSubmit = (e) => {
+    const handleDemoSubmit = async (e) => {
         e.preventDefault();
         setStatus('sending');
 
+        try {
+            const response = await fetch('http://localhost:5001/api/course', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: demoFormData.name,
+                    email: demoFormData.email,
+                    phone: demoFormData.mobile,
+                    course: demoFormData.course,
+                    message: `Demo Booking request`
+                }),
+            });
 
-        setTimeout(() => {
-            setStatus('success');
-            setDemoFormData({ name: '', mobile: '', year: '', course: '' });
-            setTimeout(() => {
-                setIsDemoModalOpen(false);
-                setStatus('');
-            }, 2000);
-        }, 1500);
+            if (response.ok) {
+                setStatus('success');
+                setDemoFormData({ name: '', mobile: '', email: '', course: '' });
+                setTimeout(() => {
+                    setIsDemoModalOpen(false);
+                    setStatus('');
+                }, 2000);
+            } else {
+                setStatus('error');
+            }
+        } catch (error) {
+            console.error('Submission error:', error);
+            setStatus('error');
+        }
     };
 
     const courses = [
-
-
         {
             id: 1,
-            title: 'Web Development',
+            code: 'WEB_STACK_01',
+            title: 'Full stack Development',
             icon: '🌐',
             description: 'Master modern web technologies from frontend to backend. Learn to build scalable and responsive web applications.',
             duration: '4 Months',
             certificate: 'Professional Certificate in Full Stack Web Development',
-            highlights: ['React & Node.js', 'Responsive Design', 'Database Management', 'Cloud Deployment']
+            highlights: ['React & Node.js', 'Responsive Design', 'Database Management', 'Cloud Deployment'],
+            dep_level: 'L3_ARCHITECT',
+            rev: '2026.01'
         },
         {
             id: 2,
+            code: 'APP_NATIVE_02',
             title: 'App Development',
             icon: '📱',
             description: 'Build high-performance mobile apps for iOS and Android using cross-platform frameworks.',
             duration: '4 Months',
             certificate: 'Mobile Application Development Specialist',
-            highlights: ['React Native / Flutter', 'Mobile UI/UX', 'API Integration', 'App Store Publishing']
+            highlights: ['React Native / Flutter', 'Mobile UI/UX', 'API Integration', 'App Store Publishing'],
+            dep_level: 'L3_ENGINEER',
+            rev: '2025.11'
         },
         {
             id: 3,
+            code: 'AI_SYSTEM_03',
             title: 'Artificial Intelligence (AI)',
             icon: '⚙️',
             description: 'Explore the future of technology. Learn about neural networks, natural language processing, and advanced AI models.',
             duration: '6 Months',
             certificate: 'Advanced AI & Deep Learning Certification',
-            highlights: ['Neural Networks', 'NLP', 'Computer Vision', 'Deep Learning Frameworks']
+            highlights: ['Neural Networks', 'NLP', 'Computer Vision', 'Deep Learning Frameworks'],
+            dep_level: 'L5_RESEARCHER',
+            rev: '2026.03'
         },
         {
             id: 4,
+            code: 'DESIGN_CORE_04',
             title: 'Diploma in Multimedia Operation',
             icon: '🎨',
             description: 'A comprehensive program covering graphic design, video editing, and digital media production.',
             duration: '4 Months',
             certificate: 'Graduate Diploma in Multimedia',
-            highlights: ['Graphic Design', 'Video Editing', '3D Modeling', 'Motion Graphics']
+            highlights: ['Graphic Design', 'Video Editing', '3D Modeling', 'Motion Graphics'],
+            dep_level: 'L2_CREATIVE',
+            rev: '2025.08'
         },
         {
             id: 5,
+            code: 'CAD_ENGINE_05',
             title: 'Computer Aided Drafting (CAD)',
             icon: '💻',
             description: 'Learn industry-standard drafting tools for engineering and architecture.',
             duration: '3 Months',
             certificate: 'Certified CAD Professional',
-            highlights: ['2D/3D Drafting', 'Architectural Design', 'Mechanical Engineering Drawings']
+            highlights: ['2D/3D Drafting', 'Architectural Design', 'Mechanical Engineering Drawings'],
+            dep_level: 'L2_DRAFTER',
+            rev: '2025.06'
         },
         {
             id: 6,
+            code: 'DATA_SCIENCE_06',
             title: 'Machine Learning Program',
             icon: '💡',
             description: 'Dive deep into data science and predictive modeling. Learn to build algorithms that learn from data.',
             duration: '6 Months',
             certificate: 'Machine Learning Engineering Certificate',
-            highlights: ['Statistical Modeling', 'Predictive Analytics', 'Python for ML', 'Model Evaluation']
+            highlights: ['Statistical Modeling', 'Predictive Analytics', 'Python for ML', 'Model Evaluation'],
+            dep_level: 'L4_ANALYST',
+            rev: '2026.02'
         },
         {
             id: 7,
+            code: 'ACC_DIGITAL_07',
             title: 'Certificate in Computer Accounting',
             icon: '📊',
             description: 'Master digital accounting tools and financial management software used in modern businesses.',
             duration: '3 Months',
             certificate: 'Computerized Accounting Professional',
-            highlights: ['Financial Statements', 'Tally Prime', 'Digital Records', 'Taxation Basics']
+            highlights: ['Financial Statements', 'Tally Prime', 'Digital Records', 'Taxation Basics'],
+            dep_level: 'L1_SPECIALIST',
+            rev: '2025.04'
         },
         {
             id: 8,
+            code: 'OFFICE_PRO_08',
             title: 'Certificate of Office Applications',
             icon: '📎',
             description: 'Essential skills for modern office environments, focusing on productivity software and workflow management.',
             duration: '2 Months',
             certificate: 'Advanced Office Productivity Certificate',
-            highlights: ['Advanced Excel', 'Word Processing', 'Presentation Design', 'Email Communication']
+            highlights: ['Advanced Excel', 'Word Processing', 'Presentation Design', 'Email Communication'],
+            dep_level: 'L1_ENTRY',
+            rev: '2025.01'
         },
         {
             id: 9,
+            code: 'ERP_TALLY_09',
             title: 'Tally',
             icon: '💼',
             description: 'Deep dive into Tally for GST, payroll, and complex financial accounting.',
             duration: '2 Months',
             certificate: 'Certified Tally ERP User',
-            highlights: ['GST Compliance', 'Payroll Management', 'Inventory Tracking', 'Financial Analysis']
+            highlights: ['GST Compliance', 'Payroll Management', 'Inventory Tracking', 'Financial Analysis'],
+            dep_level: 'L1_SPECIALIST',
+            rev: '2025.02'
+        },
+        {
+            id: 10,
+            code: 'INTERN_PRO_10',
+            title: 'Professional Internship',
+            icon: '🏢',
+            description: 'Get hands-on experience by working on live production systems and real client projects alongside senior engineers.',
+            duration: '3 - 6 Months',
+            certificate: 'Certificate of Internship Experience',
+            highlights: ['Live Project Experience', 'Industry Standard Workflows', 'Mentorship', 'Pre-Placement Offer (PPO) Opportunity'],
+            dep_level: 'L0_ROSTER',
+            rev: '2026.04'
         }
     ];
 
@@ -194,14 +251,14 @@ const Courses = () => {
 
             <div className="pt-20 pb-32 container-custom relative z-10">
 
-                <header className="mb-32 animate-fadeIn max-w-7xl mx-auto">
+                <header className="mb-20 md:mb-32 animate-fadeIn max-w-7xl mx-auto pt-10 md:pt-0">
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <div className="space-y-12">
                             <div className="mb-10 overflow-visible">
-                                <h1 className="text-[clamp(2.5rem,8vw,4rem)] font-black leading-[1.1] uppercase select-none animate-maskReveal">
+                                <h1 className="text-[clamp(2rem,8vw,4rem)] font-black leading-[1.2] md:leading-[1.1] uppercase select-none animate-maskReveal">
                                     <span className="bg-accent-gradient bg-clip-text text-transparent drop-shadow-2xl">
                                         Cultivate an
-                                        <span className="text-white">authentic</span> <br />
+                                        <span className="text-white"> authentic</span> <br className="hidden sm:block" />
                                         experience
                                     </span>
                                 </h1>
@@ -233,11 +290,11 @@ const Courses = () => {
                 </header>
 
                 {/* -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------              */}
-                <section className="mb-40">
-                    <div className="grid lg:grid-cols-2 gap-20 items-center">
-                        <div className="space-y-10 animate-fadeInLeft">
+                <section className="mb-24 md:mb-40 px-4">
+                    <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+                        <div className="space-y-8 md:space-y-10 animate-fadeInLeft">
 
-                            <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter leading-tight uppercase">
+                            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-tight uppercase">
                                 Why Train inside a <br />
                                 <span className="text-primary text-glow">Software House?</span>
                             </h2>
@@ -273,9 +330,9 @@ const Courses = () => {
 
                         <div className="relative group animate-fadeInRight">
                             <div className="absolute -inset-10 bg-primary/20 rounded-full blur-[100px] opacity-10 group-hover:opacity-30 transition-opacity duration-1000"></div>
-                            <div className="glass-premium rounded-[3rem] p-12 border border-white/10 relative overflow-hidden group/method">
-                                <div className="absolute top-0 right-0 p-8 text-primary/10 font-black text-9xl select-none uppercase tracking-tighter group-hover/method:text-primary/20 group-hover/method:scale-110 transition-all duration-1000">DNA</div>
-                                <h3 className="text-3xl font-black text-white mb-8 relative z-10 tracking-widest uppercase">The SDS Methodology</h3>
+                            <div className="glass-premium rounded-3xl md:rounded-[3rem] p-8 md:p-12 border border-white/10 relative overflow-hidden group/method">
+                                <div className="absolute top-0 right-0 p-8 text-primary/10 font-black text-7xl md:text-9xl select-none uppercase tracking-tighter group-hover/method:text-primary/20 group-hover/method:scale-110 transition-all duration-1000">DNA</div>
+                                <h3 className="text-2xl md:text-3xl font-black text-white mb-8 relative z-10 tracking-widest uppercase">The SDS Methodology</h3>
                                 <ul className="space-y-6 relative z-10">
 
                                     {['Full-day Immersion (9 AM - 6 PM)', 'Live Project Participation', 'Software Lifecycle Training', 'Industry Standards Workflow'].map((item, idx) => (
@@ -292,13 +349,13 @@ const Courses = () => {
                 </section>
 
                 {/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
-                <section className="mb-40">
+                <section className="mb-24 md:mb-40 px-4">
 
-                    <div className="text-center mb-24 animate-maskReveal">
-                        <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tighter uppercase">Our <span className="text-primary">Tech Stacks</span></h2>
-                        <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+                    <div className="text-center mb-16 md:mb-24 animate-maskReveal">
+                        <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter uppercase">Our <span className="text-primary">Tech Stacks</span></h2>
+                        <div className="w-16 md:w-24 h-1 bg-primary mx-auto rounded-full mb-8"></div>
                         
-                        <p className="text-blue-100/40 text-lg max-w-xl mx-auto font-light">
+                        <p className="text-blue-100/40 text-base md:text-lg max-w-xl mx-auto font-light">
                             Select your path into the future of engineering. Each course is tailored for high-performance professional placement.
                         </p>
                     </div>
@@ -307,28 +364,40 @@ const Courses = () => {
                         {courses.map((course, i) => (
                             <div
                                 key={course.id}
-                                className="group p-8 rounded-[32px] cursor-pointer transition-all duration-700 relative overflow-hidden glass-premium border border-white/5 hover:border-primary/30 hover:-translate-y-4 hover:shadow-[0_40px_80px_rgba(0,0,0,0.5)] animate-fadeInUp bg-white/[0.02]"
-                                style={{ animationDelay: `${i * 0.1}s`, animationFillMode: 'forwards' }}
-                                onClick={() => setSelectedCourse(course)}
+                                className="stagger-reveal animate-stagger"
+                                style={{ animationDelay: `${i * 0.1}s` }}
                             >
-                                <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/5 blur-3xl rounded-full group-hover:bg-primary/20 transition-all duration-1000 "></div>
-
-                                <div className="text-4xl mb-10 w-20 h-20 bg-white/5 flex items-center justify-center rounded-[2rem] transition-all duration-700 group-hover:bg-accent-gradient group-hover:rotate-[360deg] border border-white/10 group-hover:border-transparent group-hover:shadow-[0_0_30px_rgba(0,210,255,0.3)]">
-                                    {course.icon}
-                                </div>
-
-
-                                <div className="relative z-10 ">
-                                    <h3 className="text-2xl font-black mb-4 text-white group-hover:text-primary transition-colors tracking-tight uppercase ">{course.title}</h3>
-                                    <p className="text-blue-100/40 text-[0.95rem] mb-10 line-clamp-2 leading-relaxed font-light">{course.description}</p>
-
-                                    <div className="flex items-center justify-between pt-6 border-t border-white/5">
-                                        <div className="flex items-center text-xs text-primary font-black uppercase tracking-widest gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
-                                            {course.duration}
+                                <div 
+                                    className="group relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-700 card-3d glass-premium border border-white/5 hover:border-primary/40 shadow-2xl bg-slate-900/40 backdrop-blur-xl h-full flex flex-col p-0"
+                                    onClick={() => setSelectedCourse(course)}
+                                >
+                                    {/* Technical Top Bar */}
+                                    <div className="flex items-center justify-between px-6 py-3 border-b border-white/5 bg-black/20">
+                                        <span className="text-[10px] font-mono text-primary/60 tracking-widest uppercase">{course.code}</span>
+                                        <div className="flex items-center gap-1.5">
+                                            <div className="w-1 h-1 bg-primary animate-pulse rounded-full"></div>
+                                            <span className="text-[9px] font-mono text-white/30 tracking-tighter uppercase">{course.dep_level}</span>
                                         </div>
-                                        <span className="text-white/20 group-hover:text-white transition-all duration-500 font-bold  tracking-widest text-[10px] uppercase">
-                                            Explore DNA →
-                                        </span>
+                                    </div>
+
+                                    <div className="p-8 md:p-10 flex-grow">
+                                        <div className="text-3xl md:text-4xl mb-6 md:mb-8 w-16 h-16 md:w-20 md:h-20 bg-white/5 flex items-center justify-center rounded-2xl md:rounded-[2rem] transition-all duration-700 group-hover:bg-primary/20 border border-white/10 group-hover:border-primary/20 group-hover:shadow-[0_0_30px_rgba(0,210,255,0.2)]">
+                                            {course.icon}
+                                        </div>
+
+                                        <h3 className="text-xl md:text-2xl font-black mb-4 text-white group-hover:text-primary transition-colors tracking-tight uppercase ">{course.title}</h3>
+                                        <p className="text-blue-100/40 text-sm md:text-[0.95rem] mb-8 md:mb-10 line-clamp-2 leading-relaxed font-light">{course.description}</p>
+                                    </div>
+
+                                    <div className="p-6 bg-black/40 border-t border-white/5 flex items-center justify-between mt-auto">
+                                        <div className="flex flex-col gap-1">
+                                            <span className="text-[7px] font-mono text-white/20 uppercase tracking-widest">Duration</span>
+                                            <span className="text-[10px] font-mono text-primary/60 uppercase tracking-tighter">{course.duration}</span>
+                                        </div>
+                                        <div className="flex flex-col gap-1 text-right">
+                                            <span className="text-[7px] font-mono text-white/20 uppercase tracking-widest">Revision</span>
+                                            <span className="text-[10px] font-mono text-white/40 uppercase tracking-tighter">{course.rev}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -336,12 +405,12 @@ const Courses = () => {
                     </div>
                 </section>
                 {/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
-                <section className="mb-40 py-32 relative overflow-hidden px-4 rounded-[4rem]">
+                <section className="mb-24 md:mb-40 py-20 md:py-32 relative overflow-hidden px-4 rounded-3xl md:rounded-[4rem] mx-4 md:mx-0">
                     <div className="absolute inset-0 bg-primary/[0.03] grain border border-white/5"></div>
                     <div className="relative z-10 container-custom">
-                        <div className="text-center mb-24">
-                            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-widest ">The Engineer's <span className="text-primary text-glow">Roadmap</span></h2>
-                            <p className="text-blue-100/40 text-lg font-light max-w-2xl mx-auto">From aspiring talent to industry-ready engineer. Our proven pipeline.</p>
+                        <div className="text-center mb-16 md:mb-24">
+                            <h2 className="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-widest ">The Engineer's <span className="text-primary text-glow">Roadmap</span></h2>
+                            <p className="text-blue-100/40 text-base md:text-lg font-light max-w-2xl mx-auto">From aspiring talent to industry-ready engineer. Our proven pipeline.</p>
                         </div>
 
                         <div className="grid md:grid-cols-4 gap-8 relative">
@@ -353,10 +422,10 @@ const Courses = () => {
                                 { step: '03', title: 'Client Shadows', desc: 'Observing real software deployments.' },
                                 { step: '04', title: 'The Launchpad', desc: 'Direct placement or freelance mastery.' }
                             ].map((item, idx) => (
-                                <div key={idx} className="glass-premium p-10 rounded-[2.5rem] border-white/5 group hover:border-primary/20 transition-all duration-700 animate-fadeInUp" style={{ animationDelay: `${idx * 0.2}s` }}>
-                                    <div className="text-4xl font-black text-primary/20 group-hover:text-primary/100 transition-colors duration-700 mb-6  tracking-tighter">{item.step}</div>
-                                    <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-tight">{item.title}</h4>
-                                    <p className="text-blue-100/40 text-sm font-light leading-relaxed">{item.desc}</p>
+                                <div key={idx} className="glass-premium p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border-white/5 group hover:border-primary/20 transition-all duration-700 animate-fadeInUp" style={{ animationDelay: `${idx * 0.2}s` }}>
+                                    <div className="text-3xl md:text-4xl font-black text-primary/20 group-hover:text-primary/100 transition-colors duration-700 mb-4 md:mb-6 tracking-tighter">{item.step}</div>
+                                    <h4 className="text-lg md:text-xl font-bold text-white mb-4 uppercase tracking-tight">{item.title}</h4>
+                                    <p className="text-blue-100/40 text-xs md:text-sm font-light leading-relaxed">{item.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -371,18 +440,18 @@ const Courses = () => {
 
 
                     <div className="relative z-10 max-w-3xl mx-auto">
-                        <h2 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter uppercase leading-none animate-maskReveal ">
+                        <h2 className="text-3xl md:text-6xl font-black text-white mb-6 md:mb-8 tracking-tighter uppercase leading-tight animate-maskReveal ">
                             Become a  <span className="text-primary text-glow">Digital Architect</span>
                         </h2>
-                        <p className="text-blue-100/60 text-xl mb-12 font-light max-w-xl mx-auto leading-relaxed">
+                        <p className="text-blue-100/60 text-lg md:text-xl mb-10 md:mb-12 font-light max-w-xl mx-auto leading-relaxed">
                             Stop learning in isolation. Join the ecosystem that builds the future. 1:1 training slots are limited.
                         </p>
-                        <div className="flex flex-wrap justify-center gap-8">
+                        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
                             <button
                                 onClick={() => setIsDemoModalOpen(true)}
-                                className="group relative bg-accent-gradient text-white px-12 py-6 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-primary/40 overflow-hidden hover:scale-110"
+                                className="group relative bg-accent-gradient text-white px-10 py-4 md:px-12 md:py-6 rounded-2xl font-black text-lg md:text-xl transition-all shadow-2xl shadow-primary/40 overflow-hidden hover:scale-110"
                             >
-                                <span className="relative z-10 uppercase tracking-widest">Enroll Today</span>
+                                <span className="relative z-10 uppercase tracking-widest text-base md:text-xl">Enroll Today</span>
                                 <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 opacity-20"></div>
                             </button>
                         </div>
@@ -392,15 +461,15 @@ const Courses = () => {
 
 
                 {selectedCourse && (
-                    <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-[2000] flex items-center justify-center p-4 md:p-8 animate-fadeIn" onClick={() => setSelectedCourse(null)}>
-                        <div className="w-full max-w-2xl max-h-[90vh] rounded-[32px] relative overflow-y-auto p-6 md:p-10 border border-white/10 glass-premium bg-[#0a0a0b]/80 shadow-2xl" onClick={(e) => e.stopPropagation()}>
-                            <button className="fixed top-8 right-8 md:absolute md:top-8 md:right-8 bg-white/5 text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors shadow-lg" onClick={() => setSelectedCourse(null)}>&times;</button>
+                    <div className="fixed inset-0 bg-black/90 backdrop-blur-md z-[2000] flex items-center justify-center p-4 md:p-8 animate-fadeIn" onClick={() => setSelectedCourse(null)}>
+                        <div className="w-full max-w-2xl max-h-[90vh] rounded-3xl md:rounded-[32px] relative overflow-y-auto p-6 md:p-10 border border-white/10 glass-premium bg-[#0a0a0b]/90 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+                            <button className="fixed top-6 right-6 md:absolute md:top-8 md:right-8 bg-white/5 text-white text-2xl w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors shadow-lg z-20" onClick={() => setSelectedCourse(null)}>&times;</button>
 
-                            <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-10 mb-12">
-                                <span className="text-7xl p-8 bg-white/5 rounded-3xl border border-white/10 transition-transform duration-700">{selectedCourse.icon}</span>
+                            <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-6 md:gap-10 mb-10 md:mb-12 mt-8 md:mt-0">
+                                <span className="text-5xl md:text-7xl p-6 md:p-8 bg-white/5 rounded-3xl border border-white/10 transition-transform duration-700">{selectedCourse.icon}</span>
                                 <div className="flex-1">
-                                    <h2 className="text-4xl font-black text-white mb-4 uppercase tracking-tighter leading-tight">{selectedCourse.title}</h2>
-                                    <div className="inline-flex items-center gap-2 bg-primary/20 text-primary py-2 px-5 rounded-xl text-sm font-black uppercase tracking-widest border border-primary/20">
+                                    <h2 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tighter leading-tight">{selectedCourse.title}</h2>
+                                    <div className="inline-flex items-center gap-2 bg-primary/20 text-primary py-1.5 px-4 md:py-2 md:px-5 rounded-xl text-xs md:text-sm font-black uppercase tracking-widest border border-primary/20">
                                         <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
                                         {selectedCourse.duration}
                                     </div>
@@ -410,17 +479,17 @@ const Courses = () => {
                             <div className="space-y-12">
                                 <section>
 
-                                    <h4 className="text-primary mb-4 text-[10px] tracking-[0.5em] uppercase font-black opacity-80 underline underline-offset-8">Technical Blueprint</h4>
-                                    <p className="text-blue-100/60 text-lg leading-relaxed font-light">{selectedCourse.description}</p>
+                                    <h4 className="text-primary mb-4 text-[9px] md:text-[10px] tracking-[0.5em] uppercase font-black opacity-80 underline underline-offset-8">Technical Blueprint</h4>
+                                    <p className="text-blue-100/60 text-base md:text-lg leading-relaxed font-light">{selectedCourse.description}</p>
                                 </section>
 
                                 <section>
-                                    <h4 className="text-primary mb-4 text-[10px] tracking-[0.5em] uppercase font-black opacity-80 underline underline-offset-8">Credential Standard</h4>
-                                    <div className="flex items-center gap-6 p-8 rounded-2xl border border-white/5 glass-premium bg-white/[0.01]">
-                                        <div className="text-5xl">📜</div>
-                                        <div>
-                                            <p className="text-white font-black text-xl uppercase leading-tight">{selectedCourse.certificate}</p>
-                                            <p className="text-blue-100/30 text-[10px] mt-2 uppercase tracking-[0.2em] font-bold">SDS Verification Included</p>
+                                    <h4 className="text-primary mb-4 text-[9px] md:text-[10px] tracking-[0.5em] uppercase font-black opacity-80 underline underline-offset-8">Credential Standard</h4>
+                                    <div className="flex flex-col sm:flex-row items-center gap-6 p-6 md:p-8 rounded-2xl border border-white/5 glass-premium bg-white/[0.01]">
+                                        <div className="text-4xl md:text-5xl">📜</div>
+                                        <div className="text-center sm:text-left">
+                                            <p className="text-white font-black text-lg md:text-xl uppercase leading-tight">{selectedCourse.certificate}</p>
+                                            <p className="text-blue-100/30 text-[8px] md:text-[10px] mt-2 uppercase tracking-[0.2em] font-bold">SDS Verification Included</p>
                                         </div>
                                     </div>
 
@@ -447,7 +516,7 @@ const Courses = () => {
                                             setSelectedCourse(null);
                                             setIsDemoModalOpen(true);
                                         }}
-                                        className="w-full py-5 bg-primary text-white rounded-2xl font-black text-lg uppercase tracking-widest hover:shadow-[0_20px_40px_rgba(0,210,255,0.4)] hover:scale-[1.01] transition-all" >
+                                        className="w-full py-4 md:py-5 bg-primary text-white rounded-2xl font-black text-base md:text-lg uppercase tracking-widest hover:shadow-[0_20px_40px_rgba(0,210,255,0.4)] hover:scale-[1.01] transition-all" >
                                         Apply for This DNA
                                     </button>
                                 </div>
@@ -494,14 +563,14 @@ const Courses = () => {
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                     <div className="space-y-1.5">
-                                        <label className="text-[10px] uppercase tracking-widest font-black text-primary ml-1">Year of Passing</label>
+                                        <label className="text-[10px] uppercase tracking-widest font-black text-primary ml-1">Email Address</label>
                                         <input
-                                            type="text"
+                                            type="email"
                                             required
                                             className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-primary/50 transition-colors text-sm"
-                                            placeholder="2024"
-                                            value={demoFormData.year}
-                                            onChange={(e) => setDemoFormData({ ...demoFormData, year: e.target.value })}
+                                            placeholder="youremail@example.com"
+                                            value={demoFormData.email}
+                                            onChange={(e) => setDemoFormData({ ...demoFormData, email: e.target.value })}
                                         />
                                     </div>
                                     <div className="space-y-1.5">

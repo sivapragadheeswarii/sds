@@ -5,19 +5,25 @@ import { Link } from "react-router-dom";
 const AppDevelopment = () => {
   const mobileFeatures = [
     {
+      id: 'APP_SPEC_01',
       title: "Cross-Platform Power",
       icon: "📱",
-      desc: "One codebase for iOS and Android, ensuring consistent experience and faster time-to-market."
+      desc: "One codebase for iOS and Android, ensuring consistent experience and faster time-to-market.",
+      metric: 'POLY_CODE'
     },
     {
+      id: 'APP_SPEC_02',
       title: "Native Performance",
       icon: "⚙️",
-      desc: "Optimized architectures that provide seamless, lag-free performance indistinguishable from native apps."
+      desc: "Optimized architectures that provide seamless, lag-free performance indistinguishable from native apps.",
+      metric: 'LOW_MTBF'
     },
     {
+      id: 'APP_SPEC_03',
       title: "User-Centric UX",
       icon: "✨",
-      desc: "Intuitive mobile interfaces designed to maximize user engagement and retention."
+      desc: "Intuitive mobile interfaces designed to maximize user engagement and retention.",
+      metric: 'RETAIN_X'
     }
   ];
 
@@ -37,14 +43,14 @@ const AppDevelopment = () => {
 
         <section className="relative pt-32 pb-20 overflow-hidden">
           <div className="container-custom text-center relative z-10">
-            <span className="inline-block py-1 px-4 rounded-full border border-secondary/30 bg-secondary/5 text-secondary text-sm font-medium mb-6 animate-fadeInUp">
+            <span className="inline-block py-1 px-4 rounded-full border border-secondary/30 bg-secondary/5 text-secondary text-[10px] md:text-sm font-medium mb-6 animate-fadeInUp">
               iOS & Android Excellence
             </span>
-            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+            <h1 className="text-4xl md:text-7xl font-black mb-8 leading-tight animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
               Premium <br />
               <span className="gradient-text">Mobile Experiences</span>
             </h1>
-            <p className="max-w-2xl mx-auto text-muted text-lg md:text-xl mb-12 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
+            <p className="max-w-2xl mx-auto text-muted text-base md:text-xl mb-12 animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
               We build high-performance mobile applications that empower your business to reach users wherever they are, on any device.
             </p>
           </div>
@@ -52,55 +58,139 @@ const AppDevelopment = () => {
 {/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
         <section className="py-12">
           <div className="container-custom flex justify-center">
-            <div className="relative w-full max-w-sm aspect-[9/16] glass-premium rounded-[3rem] border-4 border-white/10 p-2 shadow-2xl animate-float">
-              <div className="w-full h-full bg-dark rounded-[2.5rem] overflow-hidden flex flex-col p-6 gap-6 relative">
+            <div className="w-full max-w-5xl glass-premium p-8 md:p-16 rounded-3xl md:rounded-[60px] border border-white/10 relative overflow-hidden group bg-slate-900/40 backdrop-blur-3xl shadow-2xl">
+              
+              <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+                   style={{ 
+                     backgroundImage: 'linear-gradient(rgba(157,80,187,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(157,80,187,0.2) 1px, transparent 1px)',
+                     backgroundSize: '40px 40px' 
+                   }}></div>
+              
+              <div className="relative aspect-[4/5] md:aspect-[21/9] w-full flex items-center justify-center">
+                {/* SVG Pipeline Layer */}
+                <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 1000 400" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <filter id="neon-glow">
+                      <feGaussianBlur stdDeviation="3" result="glow"/>
+                      <feMerge>
+                        <feMergeNode in="glow"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
 
-                <div className="flex justify-between items-center w-full">
-                  <div className="w-8 h-8 rounded-full bg-accent-gradient"></div>
-                  <div className="flex gap-1">
+                 
+                  <g className="stroke-secondary/20 fill-none stroke-[0.5] hidden md:block">
+                  
+                    <path d="M 580 200 L 750 100" />
+                 
+                    <path d="M 580 200 L 750 300" />
                     
-                    <div className="w-1 h-1 rounded-full bg-white/20"></div>
-                    <div className="w-1 h-1 rounded-full bg-white/20"></div>
+                    <path d="M 250 200 L 420 200" />
+                  </g>
+
+                 
+                  <circle r="3" fill="var(--secondary)" filter="url(#neon-glow)" className="hidden md:block">
+                    <animateMotion dur="2s" repeatCount="indefinite" path="M 250 200 L 420 200" />
+                  </circle>
+
+                
+                  <circle r="2" fill="var(--secondary)" filter="url(#neon-glow)" className="hidden md:block">
+                    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 580 200 L 750 100" />
+                  </circle>
+                  <circle r="2" fill="var(--secondary)" filter="url(#neon-glow)" className="hidden md:block">
+                    <animateMotion dur="3s" repeatCount="indefinite" path="M 580 200 L 750 300" />
+                  </circle>
+                </svg>
+
+               
+                <div className="relative z-10 w-full flex flex-col md:flex-row items-center justify-between px-4 md:px-10 gap-12 md:gap-0">
+                  
+              
+                  <div className="flex flex-col gap-4 md:gap-6 w-full md:w-48 animate-fadeInLeft text-center md:text-left order-2 md:order-1">
+                    <div className="text-[10px] font-mono text-secondary/60 tracking-widest uppercase mb-2">Comp_Library</div>
+                    <div className="grid grid-cols-4 md:grid-cols-2 gap-3">
+                      {[
+                        { icon: "👤", label: "AUTH" },
+                        { icon: "📊", label: "DATA" },
+                        { icon: "☁️", label: "CLOUD" },
+                        { icon: "⚙️", label: "LOGIC" }
+                      ].map((item, i) => (
+                        <div key={i} className="p-2 md:p-3 bg-white/5 border border-white/10 rounded-xl flex flex-col items-center gap-1 hover:border-secondary/40 transition-all cursor-pointer group/comp">
+                           <span className="text-lg md:text-xl group-hover/comp:scale-110 transition-transform">{item.icon}</span>
+                           <span className="text-[6px] md:text-[7px] font-mono text-white/40">{item.label}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
+                
+                  <div className="relative order-1 md:order-2 scale-75 md:scale-100">
+                    <div className="w-40 h-80 rounded-[2.5rem] border-4 border-secondary/20 bg-black/40 backdrop-blur-xl relative overflow-hidden flex flex-col p-4 animate-float">
+                     
+                      <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(var(--secondary) 1px, transparent 1px)', backgroundSize: '10px 10px' }}></div>
+                      
+                     
+                      <div className="relative z-10 flex flex-col gap-4">
+                         <div className="w-full h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+                            <div className="w-12 h-1 bg-secondary/40 rounded-full animate-pulse"></div>
+                         </div>
+                         <div className="flex-1 flex flex-col gap-3">
+                            <div className="w-full h-24 rounded-xl bg-secondary/5 border border-secondary/20 border-dashed flex items-center justify-center overflow-hidden">
+                               <div className="text-2xl opacity-20 animate-spin-slow">📱</div>
+                            </div>
+                            <div className="grid grid-cols-2 gap-2">
+                               <div className="h-16 rounded-xl bg-white/5 border border-white/5"></div>
+                               <div className="h-16 rounded-xl bg-white/5 border border-white/5"></div>
+                            </div>
+                         </div>
+                      </div>
 
-                <div className="bg-white/5 p-4 rounded-2xl border border-white/10">
-                  <div className="text-[10px] text-muted uppercase font-mono mb-1">TOTAL_REVENUE</div>
-                  <div className="text-2xl font-black text-primary">$42,910.00</div>
-                  <div className="mt-2 h-1 bg-white/10 rounded-full overflow-hidden">
-                    <div className="h-full bg-accent-gradient animate-growLine" style={{ width: '75%' }}></div>
+                      
+                      <div className="mt-auto h-12 rounded-xl bg-black/60 border border-white/10 p-2 flex flex-col justify-center">
+                         <div className="flex justify-between text-[6px] font-mono text-secondary mb-1">
+                            <span>ASSEMBLING...</span>
+                            <span>92%</span>
+                         </div>
+                         <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                            <div className="h-full bg-secondary w-[92%] animate-growWidth"></div>
+                         </div>
+                      </div>
+                    </div>
+                   
+                    <div className="absolute -inset-10 border border-secondary/5 rounded-full animate-spin-slow opacity-30"></div>
                   </div>
-                </div>
 
+                 
+                  <div className="flex flex-col gap-6 md:gap-12 w-full md:w-48 animate-fadeInRight order-3">
+                    <div className="text-[10px] font-mono text-secondary/60 tracking-widest uppercase mb-4 text-center md:text-right">Deployment_Nodes</div>
+                    
+                    <div className="flex flex-row md:flex-row-reverse items-center justify-center md:justify-start gap-4 md:gap-4 group/ios">
+                       <div className="flex flex-col items-start md:items-end">
+                          <span className="text-[8px] font-mono text-secondary tracking-widest">ios_v.14.2</span>
+                          <span className="text-[10px] font-bold text-white uppercase">Ready_Build</span>
+                       </div>
+                       <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl md:text-3xl group-hover/ios:border-secondary/50 group-hover/ios:bg-secondary/10 transition-all">🍎</div>
+                    </div>
 
-                <div className="flex-1 flex items-end gap-1 px-2">
-                  {[30, 50, 40, 80, 60, 90, 70].map((h, i) => (
-                    <div key={i} className="flex-1 bg-white/5 rounded-t-md animate-growLine" style={{ height: `${h}%`, transitionDelay: `${i * 100}ms` }}></div>
-                  ))}
-                </div>
-
-
-                <div className="absolute inset-0 bg-dark/80 backdrop-blur-sm opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center p-6 cursor-pointer">
-                  <div className="font-mono text-[8px] text-green-400 leading-tight">
-                    <code>
-                      class App {'{'}
-                      &nbsp;&nbsp;render() {'{'}
-                      &nbsp;&nbsp;&nbsp;&nbsp;return {'<View />'};
-                      &nbsp;&nbsp;{'}'}
-                      {'}'}
-                    </code>
+                    <div className="flex flex-row md:flex-row-reverse items-center justify-center md:justify-start gap-4 md:gap-4 group/and">
+                       <div className="flex flex-col items-start md:items-end">
+                          <span className="text-[8px] font-mono text-secondary tracking-widest">and_v.12.0</span>
+                          <span className="text-[10px] font-bold text-white uppercase">Optimized</span>
+                       </div>
+                       <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl md:text-3xl group-hover/and:border-secondary/50 group-hover/and:bg-secondary/10 transition-all">🤖</div>
+                    </div>
                   </div>
+
                 </div>
 
-                <div className="mt-auto grid grid-cols-2 gap-4 w-full">
-                  <div className="h-2 w-full bg-white/5 rounded-full"></div>
-                  <div className="h-2 w-1/2 bg-white/5 rounded-full"></div>
+                
+                <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex flex-wrap justify-center gap-4 md:gap-10 text-[6px] md:text-[8px] font-mono text-white/20 uppercase tracking-[0.2em] md:tracking-[0.3em] w-full px-4">
+                   <span className="flex items-center gap-1 md:gap-2"><div className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-green-500 animate-pulse"></div> UI_SYNC_OK</span>
+                   <span className="flex items-center gap-1 md:gap-2"><div className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-secondary animate-pulse"></div> DATA_BIND_ACTIVE</span>
+                   <span className="flex items-center gap-1 md:gap-2"><div className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-white/30 animate-pulse"></div> DEPLOY_PENDING</span>
                 </div>
               </div>
-
-              <div className="absolute -top-10 -right-10 w-20 h-20 bg-primary/20 rounded-full blur-2xl"></div>
-              <div className="absolute -bottom-10 -left-10 w-20 h-20 bg-secondary/20 rounded-full blur-2xl"></div>
             </div>
           </div>
         </section>
@@ -108,17 +198,33 @@ const AppDevelopment = () => {
 
         <section className="py-24">
           <div className="container-custom">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               {mobileFeatures.map((feature, i) => (
-                <div key={i} className="glass-premium p-10 rounded-3xl hover:-translate-y-4 transition-all duration-500 group border border-white/5">
-                  <div className="text-5xl mb-6 bg-white/5 w-16 h-16 flex items-center justify-center rounded-2xl group-hover:bg-secondary group-hover:text-white transition-colors duration-500">
-                    {feature.icon}
+                <div 
+                  key={i} 
+                  className="stagger-reveal animate-stagger"
+                  style={{ animationDelay: `${i * 0.1}s` }}
+                >
+                  <div className="glass-premium rounded-3xl p-0 overflow-hidden border border-white/5 hover:border-secondary/40 shadow-2xl transition-all duration-700 card-3d bg-slate-900/40 backdrop-blur-xl group">
+                   
+                    <div className="flex items-center justify-between px-6 py-3 border-b border-white/5 bg-black/20">
+                      <span className="text-[10px] font-mono text-secondary/60 tracking-widest uppercase">{feature.id}</span>
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-1 h-1 bg-secondary animate-pulse rounded-full"></div>
+                        <span className="text-[9px] font-mono text-white/30 tracking-tighter uppercase">{feature.metric}</span>
+                      </div>
+                    </div>
+
+                    <div className="p-10">
+                      <div className="text-5xl mb-8 bg-white/5 w-16 h-16 flex items-center justify-center rounded-2xl group-hover:bg-secondary/20 transition-colors duration-500">
+                        {feature.icon}
+                      </div>
+                      <h3 className="text-2xl font-bold mb-4 tracking-tight uppercase group-hover:text-secondary transition-colors">{feature.title}</h3>
+                      <p className="text-muted leading-relaxed text-sm h-10 overflow-hidden line-clamp-2">
+                        {feature.desc}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-                  <p className="text-muted leading-relaxed">
-                    {feature.desc}
-                  </p>
                 </div>
               ))}
             </div>
