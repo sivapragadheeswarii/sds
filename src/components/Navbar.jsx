@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 
@@ -20,8 +20,20 @@ const Navbar = () => {
     const toggleMenu = () => setIsOpen(!isOpen);
     const closeMenu = () => setIsOpen(false);
 
+    // Disable scroll when mobile menu is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [isOpen]);
+
     return (
-        <nav className="fixed top-0 left-0 w-full h-20 z-[1000] flex items-center border-b border-white/10 bg-[#0a0a0f]/90 backdrop-blur-lg shadow-lg">
+        <nav className={`fixed top-0 left-0 w-full h-20 z-[1000] flex items-center border-b border-white/10 transition-all duration-300 ${isOpen ? 'bg-[#0a0a0f]' : 'bg-[#0a0a0f]/90 backdrop-blur-lg'} shadow-lg`}>
 
             <div className="w-[90%] mx-auto flex justify-between items-center">
 
@@ -75,7 +87,13 @@ const Navbar = () => {
             </div>
 
 
-            <div className={`fixed inset-0 bg-[#0a0a0f] z-[1050] flex flex-col items-center justify-center transition-all duration-500 md:hidden ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+            {/* Mobile Menu Overlay */}
+            <div 
+                className={`fixed inset-0 bg-[#0a0a0f] z-[1050] flex flex-col items-center justify-center transition-all duration-500 md:hidden ${
+                    isOpen ? 'opacity-100 visible h-screen' : 'opacity-0 invisible pointer-events-none h-0'
+                }`}
+                style={{ backdropFilter: 'none' }}
+            >
                 <div className="flex flex-col gap-8 text-center">
                     {navLinks.map((link, index) => (
                         <NavLink
