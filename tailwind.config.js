@@ -89,6 +89,14 @@ export default {
                     '0%, 100%': { opacity: '1' },
                     '50%': { opacity: '0' },
                 },
+                marquee: {
+                    '0%': { transform: 'translateX(0)' },
+                    '100%': { transform: 'translateX(-50%)' },
+                },
+                'marquee-reverse': {
+                    '0%': { transform: 'translateX(-50%)' },
+                    '100%': { transform: 'translateX(0)' },
+                },
             },
 
             
@@ -108,6 +116,8 @@ export default {
                 glowPulse: 'glowPulse 3s ease-in-out infinite',
                 codeScroll: 'codeScroll 40s linear infinite',
                 cursorBlink: 'cursorBlink 1s step-end infinite',
+                marquee: 'marquee 60s linear infinite',
+                'marquee-reverse': 'marquee-reverse 60s linear infinite',
             }
 
 

@@ -247,7 +247,7 @@ const Projects = () => {
                 <div className="pb-20 space-y-12">
                     {/* First Row - Scrolling on Desktop, Grid on Mobile */}
                     <div className="marquee-container relative w-full overflow-hidden">
-                        <div className="flex flex-col md:flex-row gap-6 md:gap-10 md:animate-marquee md:whitespace-nowrap w-full md:w-fit hover:[animation-play-state:paused] py-4">
+                        <div className="flex gap-6 md:gap-10 md:animate-marquee whitespace-nowrap w-fit hover:[animation-play-state:paused] py-4">
                             {[...filteredProjects, ...filteredProjects].map((project, i) => (
                                 <div
                                     key={`row1-${i}`}
