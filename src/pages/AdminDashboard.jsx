@@ -221,6 +221,7 @@ const AdminDashboard = () => {
                         className="absolute top-2 right-2 bg-red-500/80 hover:bg-red-500 p-2 rounded-lg text-white backdrop-blur-sm transition-all"
                       >
                         <FiTrash2 />
+                        
                       </button>
                     </div>
                     <div className="p-4">

@@ -58,9 +58,9 @@ const HeroVisual = () => {
 
     useEffect(() => {
         let timeoutId;
-        let isActive = true; // Prevents React Strict Mode double-firing
+        let isActive = true; 
 
-        // Typing effect loop
+        
         if (currentChunkIndex < CODE_LINES.length) {
             const currentChunkData = CODE_LINES[currentChunkIndex];
             
@@ -72,13 +72,13 @@ const HeroVisual = () => {
                         const newChunks = [...prev];
                         
                         if (!newChunks[currentChunkIndex]) {
-                            // First character of a new chunk
+                           
                             newChunks[currentChunkIndex] = { 
                                 ...currentChunkData, 
                                 text: currentChunkData.text[currentCharIndex] 
                             };
                         } else {
-                            // Append next character immutably
+                          
                             newChunks[currentChunkIndex] = {
                                 ...newChunks[currentChunkIndex],
                                 text: newChunks[currentChunkIndex].text + currentChunkData.text[currentCharIndex]
@@ -89,10 +89,9 @@ const HeroVisual = () => {
                     });
                     
                     if (isActive) setCurrentCharIndex(prev => prev + 1);
-                }, Math.random() * 50 + 30); // Random typing speed (30ms - 80ms per char)
-
+                }, Math.random() * 50 + 30); 
             } else {
-                // Move to next line/chunk after a tiny pause
+                
                 timeoutId = setTimeout(() => {
                     if (!isActive) return;
                     setCurrentChunkIndex(prev => prev + 1);
@@ -100,13 +99,13 @@ const HeroVisual = () => {
                 }, 100);
             }
         } else {
-            // Loop code after completion
+           
             timeoutId = setTimeout(() => {
                 if (!isActive) return;
                 setTypedChunks([]);
                 setCurrentChunkIndex(0);
                 setCurrentCharIndex(0);
-            }, 5000); // Wait 5 seconds before restarting
+            }, 5000); 
         }
 
         return () => {
@@ -117,12 +116,12 @@ const HeroVisual = () => {
 
     return (
         <div className="relative w-full flex items-center justify-center pointer-events-none select-none mt-20 pl-20">
-            {/* Background Glow */}
+        
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/20 blur-[120px] rounded-full animate-pulse-slow"></div>
 
-            {/* Main IDE Window */}
+       
             <div className="relative w-full max-w-[600px] h-auto pb-10 glass-premium bg-[#0d1117]/90 rounded-2xl border border-white/10 shadow-[0_0_50px_rgba(59,130,246,0.15)] overflow-hidden animate-float z-20">
-                {/* IDE Header */}
+               
                 <div className="px-4 py-3 bg-white/5 border-b border-white/10 flex items-center gap-2">
                     <div className="flex gap-1.5">
                         <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
@@ -135,18 +134,18 @@ const HeroVisual = () => {
                     </div>
                 </div>
 
-                {/* IDE Code Area */}
+           
                 <div className="p-5 md:p-6 font-mono text-[9px] md:text-xs leading-relaxed overflow-hidden h-[320px]">
                     <pre className="whitespace-pre-wrap font-inherit tracking-tight">
                         {typedChunks.map((chunk, index) => (
                             <span key={index} className={chunk.class}>{chunk.text}</span>
                         ))}
-                        {/* Blinking Cursor */}
+                       
                         <span className="inline-block w-2.5 h-[14px] bg-white/80 animate-pulse ml-0.5 align-middle"></span>
                     </pre>
                 </div>
 
-                {/* IDE Status Bar */}
+            
                 <div className="absolute bottom-0 w-full px-4 py-1.5 bg-blue-500/10 border-t border-blue-500/20 flex justify-between items-center text-[9px] text-blue-300 font-mono">
                     <div className="flex items-center gap-3">
                         <span className="flex items-center gap-1"><div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div> SYNCED</span>
@@ -160,19 +159,22 @@ const HeroVisual = () => {
                 </div>
             </div>
 
-            {/* Floating Tech Icons */}
+           
             <div className="absolute w-14 h-14 glass-premium rounded-xl bg-slate-900/80 backdrop-blur-md flex items-center justify-center shadow-lg -top-20 -right-4 md:-right-16 animate-float border border-white/5 mt-40" style={{ animationDelay: '0.2s' }}>
                 <FaReact className="text-[#61DAFB] text-3xl animate-[spin_6s_linear_infinite]" />
             </div>
             <div className="absolute w-14 h-14 glass-premium rounded-xl bg-slate-900/80 backdrop-blur-md flex items-center justify-center shadow-lg top-1/4 -left-6 md:-left-0 animate-float-slow border border-white/5" style={{ animationDelay: '0.7s' }}>
                 <FaNodeJs className="text-[#339933] text-2xl" />
             </div>
+
             <div className="absolute w-14 h-14 glass-premium rounded-xl bg-slate-900/80 backdrop-blur-md flex items-center justify-center shadow-lg bottom-1/4 -right-2 md:-right-14 animate-float border border-white/5 ml-40" style={{ animationDelay: '1.2s' }}>
                 <FaAws className="text-[#FF9900] text-3xl" />
             </div>
+
             <div className="absolute w-12 h-12 glass-premium rounded-xl bg-slate-900/80 backdrop-blur-md flex items-center justify-center shadow-lg -bottom-6 left-10 md:left-4 animate-float-slow border border-white/5" style={{ animationDelay: '0.4s' }}>
                 <SiTypescript className="text-[#3178C6] text-2xl" />
             </div>
+
             <div className="absolute w-10 h-10 glass-premium rounded-xl bg-slate-900/80 backdrop-blur-md flex items-center justify-center shadow-lg -bottom-16 left-1/4 animate-float border border-white/5" style={{ animationDelay: '1.5s' }}>
                 <SiMongodb className="text-[#47A248] text-xl" />
             </div>
