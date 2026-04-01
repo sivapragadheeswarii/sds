@@ -63,12 +63,12 @@ const Home = () => {
         },
         {
             id: 'ARCH_002',
-            title: 'Surabhi Fencing',
-            category: 'Construction',
-            image: 'https://www.expandedmetalcompany.com/media/wysiwyg/link_fencing_2.jpg',
-            link: 'https://sds-surabhi.vercel.app/',
-            build: 'PRODUCTION',
-            arch: 'REACTIVE_UI'
+            title: 'Holy Cross School',
+            category: 'Education',
+            image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&h=400&auto=format&fit=crop',
+            link: 'https://holycrossschoolpalani.org/',
+            build: 'STABLE',
+            arch: 'CMS_PORTAL'
         },
         {
             id: 'ARCH_003',
@@ -134,9 +134,6 @@ const Home = () => {
                             <div className="max-w-[900px] z-10">
                                 <div className="flex flex-wrap items-center gap-x-8 gap-y-4 mb-2 animate-fadeIn">
 
-                                    <div className="inline-block px-4 py-1.5 text-[11px] font-semibold tracking-[0.4em] text-primary underline decoration-primary/30 underline-offset-8 uppercase">
-                                        Legacy since 2021
-                                    </div>
                                     {/* <div className="hidden md:block h-4 w-[1px] bg-white/10"></div>
                                     <a 
                                         href="tel:+919384293632" 
@@ -514,24 +511,32 @@ const Home = () => {
             </div>
 
             {/* Floating Contact Widgets */}
-            <div className="fixed bottom-8 right-8 z-[1000] flex flex-col gap-4 animate-fadeInUp" style={{ animationDelay: '1s' }}>
-                <a
-                    href="https://wa.me/919384293632"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-14 h-14 bg-green-500 hover:bg-green-400 text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/30 hover:scale-110 transition-transform group animate-bounce"
-                    aria-label="Chat on WhatsApp"
-                >
-                    <FaWhatsapp className="group-hover:scale-125 transition-transform duration-300" />
-                </a>
+            <div className="fixed bottom-8 right-8 z-[1000] flex flex-col gap-6">
+                {/* WhatsApp Widget */}
+                <div className="relative group animate-fluid-drift">
+                    <div className="absolute inset-0 bg-green-500 rounded-full animate-atomic-ping"></div>
+                    <a
+                        href="https://wa.me/919384293632"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative z-10 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(34,197,94,0.4)] hover:scale-125 transition-transform duration-500 hover-jitter"
+                        aria-label="Chat on WhatsApp"
+                    >
+                        <FaWhatsapp className="group-hover:rotate-12 transition-transform" />
+                    </a>
+                </div>
 
-                <a
-                    href="tel:+919384293632"
-                    className="w-14 h-14 bg-blue-600 hover:bg-blue-500 text-white rounded-full flex items-center justify-center text-[1.6rem] shadow-lg shadow-blue-600/30 hover:scale-110 transition-transform group animate-[bounce_1.5s_infinite_100ms]"
-                    aria-label="Call Us"
-                >
-                    <FaPhoneAlt className="group-hover:scale-125 transition-transform duration-300" />
-                </a>
+                {/* Phone Widget */}
+                <div className="relative group animate-fluid-drift" style={{ animationDelay: '-4s' }}>
+                    <div className="absolute inset-0 bg-blue-600 rounded-full animate-atomic-ping" style={{ animationDelay: '0.7s' }}></div>
+                    <a
+                        href="tel:+919384293632"
+                        className="relative z-10 w-14 h-14 bg-blue-600 text-white rounded-full flex items-center justify-center text-[1.6rem] shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-125 transition-transform duration-500 hover-jitter"
+                        aria-label="Call Us"
+                    >
+                        <FaPhoneAlt className="group-hover:-rotate-12 transition-transform" />
+                    </a>
+                </div>
             </div>
         </div>
     );

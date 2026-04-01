@@ -6,10 +6,10 @@ const Footer = () => {
         <footer className="relative z-50 bg-dark py-20 border-t border-white/10 grain">
             <div className="container-custom grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-16 mb-12">
                 <div className="max-w-[400px]">
-                    <div className="flex flex-col leading-none">
+                    <div className="flex flex-col leading-none font-brand">
                         <Link to="/" className="flex flex-col leading-none group">
-                            <span className="text-2xl font-extrabold tracking-widest bg-accent-gradient bg-clip-text text-transparent group-hover:opacity-80 transition-opacity">SDS</span>
-                            <span className="text-[0.7rem] font-medium text-muted uppercase tracking-wider group-hover:text-primary transition-colors">Technology</span>
+                            <span className="text-2xl font-black tracking-tighter bg-accent-gradient bg-clip-text text-transparent group-hover:opacity-80 transition-opacity">SDS</span>
+                            <span className="text-[0.7rem] font-medium text-muted uppercase tracking-wider group-hover:text-primary transition-colors">Technologies</span>
                         </Link>
                     </div>
                     <p className="mt-6 text-muted">
@@ -39,7 +39,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="text-center pt-8 border-t border-white/10 text-muted text-[0.8rem]">
-                <p>&copy; {new Date().getFullYear()} SDS Technology. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} SDS Technologies. All rights reserved.</p>
             </div>
         </footer>
     );

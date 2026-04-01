@@ -7,7 +7,7 @@ const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(null);
     const [filter, setFilter] = useState('ALL');
 
-    const categories = ['ALL', 'WEB_APP', 'SYSTEM_CORE', 'E-COMMERCE'];
+    const categories = ['ALL', 'WEB_APP', 'SYSTEM_CORE'];
 
     const projects = [
         {

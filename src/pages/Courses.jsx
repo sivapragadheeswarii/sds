@@ -277,7 +277,7 @@ const Courses = () => {
                                     onClick={() => setIsDemoModalOpen(true)}
                                     className="group relative bg-accent-gradient text-white px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-xl shadow-primary/30 hover:scale-[1.02]"
                                 >
-                                    <span className="relative z-10 uppercase tracking-widest">Book Your Free Demo</span>
+                                    <span className="relative z-10 uppercase tracking-widest">Get Started</span>
                                     <div className="absolute inset-0 bg-white/10 rounded-xl scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
                                 </button>
                             </div>

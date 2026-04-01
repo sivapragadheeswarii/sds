@@ -61,64 +61,63 @@ const DigitalMarketing = () => {
           <div className="container-custom flex justify-center">
             <div className="w-full max-w-4xl glass-premium p-8 md:p-12 rounded-3xl md:rounded-[50px] border border-white/10 relative overflow-hidden group bg-slate-900/40 backdrop-blur-2xl shadow-2xl">
               <div className="relative aspect-[4/5] md:aspect-[21/9] w-full flex items-center justify-center">
-                {/* SVG Matrix Layer */}
-                <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 800 300">
-                  <defs>
-                    <pattern id="grid-dots" width="20" height="20" patternUnits="userSpaceOnUse">
-                      <circle cx="1" cy="1" r="1" fill="var(--secondary)" opacity="0.3" />
+
+     <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 800 300">
+   <defs>
+  <pattern id="grid-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+  <circle cx="1" cy="1" r="1" fill="var(--secondary)" opacity="0.3" />
                     </pattern>
                   </defs>
                   <rect width="100%" height="100%" fill="url(#grid-dots)" />
                   
-                  {/* Connection Paths */}
-                  <g className="stroke-secondary/10 fill-none stroke-px">
-                    <path d="M 0 150 L 800 150" />
-                    <path d="M 200 0 L 200 300" />
-                    <path d="M 400 0 L 400 300" />
-                    <path d="M 600 0 L 600 300" />
+               
+     <g className="stroke-secondary/10 fill-none stroke-px">
+   <path d="M 0 150 L 800 150" />
+  <path d="M 200 0 L 200 300" />
+   <path d="M 400 0 L 400 300" />
+  <path d="M 600 0 L 600 300" />
                   </g>
 
-                  {/* Flow Flux */}
-                  <rect x="0" y="148" width="4" height="4" fill="var(--secondary)" filter="url(#hologram-glow)">
-                    <animate attributeName="x" from="0" to="800" dur="4s" repeatCount="indefinite" />
+             
+    <rect x="0" y="148" width="4" height="4" fill="var(--secondary)" filter="url(#hologram-glow)">
+   <animate attributeName="x" from="0" to="800" dur="4s" repeatCount="indefinite" />
                   </rect>
-                  <rect x="0" y="148" width="4" height="4" fill="var(--secondary)" filter="url(#hologram-glow)">
-                    <animate attributeName="x" from="0" to="800" dur="4s" repeatCount="indefinite" begin="2s" />
-                  </rect>
-                </svg>
+     <rect x="0" y="148" width="4" height="4" fill="var(--secondary)" filter="url(#hologram-glow)">
+  <animate attributeName="x" from="0" to="800" dur="4s" repeatCount="indefinite" begin="2s" />
+  </rect>
+    </svg>
 
-                <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-4 gap-6 px-4 md:px-10 items-center">
-                  <div className="p-4 md:p-6 rounded-2xl bg-white/5 border border-white/5 text-center group/metric hover:border-secondary/30 transition-all backdrop-blur-md">
-                    <div className="text-[10px] font-mono text-secondary/60 mb-2 uppercase tracking-widest">AWARE_IN</div>
-                    <div className="text-2xl md:text-3xl font-black text-white">100%</div>
-                    <div className="mt-2 md:mt-3 flex gap-1 justify-center">
-                      <div className="w-1 h-3 bg-secondary/40 animate-pulse"></div>
-                      <div className="w-1 h-3 bg-secondary/40 animate-pulse" style={{ animationDelay: '0.1s' }}></div>
-                      <div className="w-1 h-3 bg-secondary/40 animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+  <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-4 gap-6 px-4 md:px-10 items-center">
+    <div className="p-4 md:p-6 rounded-2xl bg-white/5 border border-white/5 text-center group/metric hover:border-secondary/30 transition-all backdrop-blur-md">
+    <div className="text-[10px] font-mono text-secondary/60 mb-2 uppercase tracking-widest">AWARE_IN</div>
+     <div className="text-2xl md:text-3xl font-black text-white">100%</div>
+    <div className="mt-2 md:mt-3 flex gap-1 justify-center">
+  <div className="w-1 h-3 bg-secondary/40 animate-pulse"></div>
+    <div className="w-1 h-3 bg-secondary/40 animate-pulse" style={{ animationDelay: '0.2s' }}></div>
                     </div>
-                  </div>
+   </div>
 
-                  <div className="md:col-span-2 relative flex flex-col items-center">
-                    <div className="w-40 h-40 md:w-48 md:h-48 rounded-[2rem] bg-secondary/5 border border-secondary/20 flex flex-center items-center justify-center relative animate-pulse shadow-[0_0_50px_rgba(157,80,187,0.1)]">
-                      <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border border-secondary/10 border-dashed animate-spin-slow absolute"></div>
-                      <div className="flex flex-col items-center">
-                        <span className="text-3xl md:text-4xl mb-2">⚙️</span>
+   <div className="md:col-span-2 relative flex flex-col items-center">
+  <div className="w-40 h-40 md:w-48 md:h-48 rounded-[2rem] bg-secondary/5 border border-secondary/20 flex flex-center items-center justify-center relative animate-pulse shadow-[0_0_50px_rgba(157,80,187,0.1)]">
+  <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border border-secondary/10 border-dashed animate-spin-slow absolute"></div>
+   <div className="flex flex-col items-center">
+    <span className="text-3xl md:text-4xl mb-2">⚙️</span>
                         <span className="text-[6px] md:text-[8px] font-mono text-secondary tracking-widest uppercase">Growth_Engine_V.3</span>
                       </div>
                     </div>
-                    {/* Lateral Status Lines */}
+                    
                     <div className="absolute left-0 top-1/2 -translate-x-full h-px w-10 bg-gradient-to-r from-transparent to-secondary/20 hidden md:block"></div>
                     <div className="absolute right-0 top-1/2 translate-x-full h-px w-10 bg-gradient-to-l from-transparent to-secondary/20 hidden md:block"></div>
                   </div>
 
                   <div className="p-4 md:p-6 rounded-2xl bg-white/5 border border-white/5 text-center group/metric hover:border-secondary/30 transition-all backdrop-blur-md">
                     <div className="text-[10px] font-mono text-secondary/60 mb-2 uppercase tracking-widest">CONV_EXIT</div>
-                    <div className="text-2xl md:text-3xl font-black text-secondary">4.8x</div>
+  <div className="text-2xl md:text-3xl font-black text-secondary">4.8x</div>
                     <div className="mt-1 text-[8px] font-mono text-green-500 uppercase tracking-widest animate-pulse">ROI_STABLE</div>
                   </div>
                 </div>
 
-                {/* Technical readouts */}
+              
                 <div className="absolute bottom-4 md:bottom-6 right-6 md:right-10 flex flex-wrap justify-end gap-3 md:gap-6 text-[6px] md:text-[8px] font-mono text-white/30 uppercase tracking-[0.2em] md:tracking-[0.3em]">
                   <span>REMARKET: ACTIVE</span>
                   <span>SYNC_MODE: DYNAMIC</span>
@@ -140,7 +139,7 @@ const DigitalMarketing = () => {
                   style={{ animationDelay: `${i * 0.1}s` }}
                 >
                   <div className="glass-premium rounded-3xl p-0 overflow-hidden border border-white/5 hover:border-secondary/40 shadow-2xl transition-all duration-700 card-3d bg-slate-900/40 backdrop-blur-xl group">
-                    {/* Technical Top Bar */}
+                 
                     <div className="flex items-center justify-between px-6 py-3 border-b border-white/5 bg-black/20">
                       <span className="text-[10px] font-mono text-secondary/60 tracking-widest uppercase">{feature.id}</span>
                       <div className="flex items-center gap-1.5">

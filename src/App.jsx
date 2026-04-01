@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
 import Projects from './pages/Projects'
+import Products from './pages/Products'
 import Courses from './pages/Courses'
 import Contact from './pages/Contact'
 import Navbar from './components/Navbar'
@@ -33,6 +34,7 @@ function App() {
           <Route path="/services/graphic-design" element={<GraphicDesign />} />
           <Route path="/services/seo" element={<SEO />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/services/ecommerce-management" element={<EcommerceManagement />} />

@@ -426,56 +426,46 @@
   transform: translateZ(400px);
 }
 
-@keyframes scanline {
-  0% {
-    transform: translateY(-100%);
+@keyframes laptop-float-33d {
+  0%, 100% {
+    transform: translateY(0) rotateX(5deg);
   }
-
-  100% {
-    transform: translateY(100vh);
-  }
-}
-
-@keyframes grid-pulse {
-  0% {
-    opacity: 0.2;
-  }
-
   50% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 0.2;
+    transform: translateY(-20px) rotateX(8deg);
   }
 }
 
-@keyframes typewriting {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 100%;
-  }
+@keyframes key-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
 }
 
-.animate-scan {
-  animation: scanline 4s linear infinite;
+@keyframes window-drift {
+  0% { transform: translateY(0) translateX(0) scale(1); }
+  33% { transform: translateY(-15px) translateX(10px) scale(1.02); }
+  66% { transform: translateY(10px) translateX(-10px) scale(0.98); }
+  100% { transform: translateY(0) translateX(0) scale(1); }
 }
 
-.animate-grid-pulse {
-  animation: grid-pulse 4s ease-in-out infinite;
+@keyframes dash-scroll {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
 }
 
-.typewriter-text {
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typewriting 2s steps(40, end);
+.animate-laptop-3d {
+  animation: laptop-float-33d 8s ease-in-out infinite;
 }
 
-.border-glow-primary {
-  box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+.animate-key-glow {
+  animation: key-glow 4s ease-in-out infinite;
+}
+
+.animate-window-drift {
+  animation: window-drift 10s ease-in-out infinite;
+}
+
+.animate-dash-scroll {
+  animation: dash-scroll 20s linear infinite;
 }
 
 html {
@@ -540,6 +530,24 @@ html {
   100% { transform: translateX(0); }
 }
 
+.text-static-dual-tone {
+  background: linear-gradient(
+    to bottom,
+    var(--primary) 0%,
+    var(--primary) 48%,
+    var(--secondary) 52%,
+    var(--secondary) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: white; /* Important Fallback */
+  display: inline-block;
+  position: relative;
+  filter: drop-shadow(0 0 15px rgba(157, 80, 187, 0.3));
+  font-weight: 900;
+}
+
 .animate-marquee {
   animation: marquee 60s linear infinite;
 }
@@ -591,6 +599,10 @@ html {
     0 0 30px rgba(0, 210, 255, 0.2);
 }
 
+.font-brand {
+  font-family: 'Outfit', sans-serif !important;
+}
+
 /* Staggered entrance helper */
 .stagger-reveal {
   opacity: 0;
@@ -605,3 +617,36 @@ html {
 .pause-on-hover:hover .animate-marquee-reverse {
   animation-play-state: paused;
 }
+@keyframes atomic-ping {
+  0% { transform: scale(1); opacity: 1; filter: brightness(1.2); }
+  50% { transform: scale(1.3); opacity: 0.5; filter: brightness(1.8); }
+  100% { transform: scale(1.6); opacity: 0; filter: brightness(2.5); }
+}
+
+@keyframes fluid-drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(4px, -15px) rotate(4deg); }
+  50% { transform: translate(-4px, 5px) rotate(-3deg); }
+  75% { transform: translate(6px, -10px) rotate(2deg); }
+}
+
+@keyframes tech-jitter {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(1px, -1px); }
+  50% { transform: translate(-1px, 1px); }
+  75% { transform: translate(1px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+
+.animate-atomic-ping {
+  animation: atomic-ping 1.5s cubic-bezier(0.1, 0, 0, 1) infinite;
+}
+
+.animate-fluid-drift {
+  animation: fluid-drift 8s ease-in-out infinite;
+}
+
+.hover-jitter:hover {
+  animation: tech-jitter 0.1s linear infinite;
+}
+

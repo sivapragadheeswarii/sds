@@ -1,195 +1,169 @@
 import React, { useState, useEffect } from 'react';
-import { FaReact, FaNodeJs, FaAws, FaDocker, FaPython } from 'react-icons/fa';
-import { SiMongodb, SiTypescript } from 'react-icons/si';
-
-// This defines the sequence of text along with its specific styling class
-// The structure helps maintain syntax highlighting while iterating characters
-const CODE_LINES = [
-    { text: '// Architecting elite digital ecosystems for the future\n', class: 'text-white/30' },
-    
-    { text: 'import ', class: 'text-[#ff7b72]' },
-    { text: 'React ', class: 'text-[#c9d1d9]' },
-    { text: 'from ', class: 'text-[#ff7b72]' },
-    { text: "'react'", class: 'text-[#a5d6ff]' },
-    { text: ';\n', class: 'text-[#c9d1d9]' },
-    
-    { text: 'import ', class: 'text-[#ff7b72]' },
-    { text: '{ QuantumCore } ', class: 'text-[#c9d1d9]' },
-    { text: 'from ', class: 'text-[#ff7b72]' },
-    { text: "'@sds/engine'", class: 'text-[#a5d6ff]' },
-    { text: ';\n', class: 'text-[#c9d1d9]' },
-
-    { text: 'const ', class: 'text-[#ff7b72]' },
-    { text: 'EnterpriseApp ', class: 'text-[#d2a8ff]' },
-    { text: '= () => {\n', class: 'text-[#ff7b72]' },
-    
-    { text: '  const { system } = ', class: 'text-[#c9d1d9]' },
-    { text: 'useQuantumCore', class: 'text-[#d2a8ff]' },
-    { text: '();\n\n', class: 'text-[#c9d1d9]' },
-
-    { text: '  return (\n', class: 'text-[#ff7b72]' },
-    
-    { text: '    <GlobalEcosystem>\n', class: 'text-[#7ee787]' },
-    
-    { text: '      <ScalableArchitecture ', class: 'text-[#7ee787]' },
-    { text: 'resilience=', class: 'text-[#79c0ff]' },
-    { text: '{"maximum"}', class: 'text-[#a5d6ff]' },
-    { text: ' />\n', class: 'text-[#7ee787]' },
-
-    { text: '      <SecurityLayer ', class: 'text-[#7ee787]' },
-    { text: 'zeroTrust=', class: 'text-[#79c0ff]' },
-    { text: '{true}', class: 'text-[#a5d6ff]' },
-    { text: ' />\n', class: 'text-[#7ee787]' },
-
-    { text: '      <AIIntelligence ', class: 'text-[#7ee787]' },
-    { text: 'status=', class: 'text-[#79c0ff]' },
-    { text: '{"active"}', class: 'text-[#a5d6ff]' },
-    { text: ' />\n', class: 'text-[#7ee787]' },
-
-    { text: '    </GlobalEcosystem>\n', class: 'text-[#7ee787]' },
-    { text: '  );\n', class: 'text-[#c9d1d9]' },
-    { text: '};\n', class: 'text-[#c9d1d9]' }
-];
+import { FaShieldAlt, FaRocket, FaGlobe, FaCode, FaChartBar } from 'react-icons/fa';
+import { SiReact, SiNodedotjs, SiTailwindcss, SiJavascript, SiFramer } from 'react-icons/si';
 
 const HeroVisual = () => {
-    const [typedChunks, setTypedChunks] = useState([]);
-    const [currentChunkIndex, setCurrentChunkIndex] = useState(0);
-    const [currentCharIndex, setCurrentCharIndex] = useState(0);
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
-        let timeoutId;
-        let isActive = true; 
-
-        
-        if (currentChunkIndex < CODE_LINES.length) {
-            const currentChunkData = CODE_LINES[currentChunkIndex];
-            
-            if (currentCharIndex < currentChunkData.text.length) {
-                timeoutId = setTimeout(() => {
-                    if (!isActive) return;
-
-                    setTypedChunks(prev => {
-                        const newChunks = [...prev];
-                        
-                        if (!newChunks[currentChunkIndex]) {
-                           
-                            newChunks[currentChunkIndex] = { 
-                                ...currentChunkData, 
-                                text: currentChunkData.text[currentCharIndex] 
-                            };
-                        } else {
-                          
-                            newChunks[currentChunkIndex] = {
-                                ...newChunks[currentChunkIndex],
-                                text: newChunks[currentChunkIndex].text + currentChunkData.text[currentCharIndex]
-                            };
-                        }
-                        
-                        return newChunks;
-                    });
-                    
-                    if (isActive) setCurrentCharIndex(prev => prev + 1);
-                }, Math.random() * 50 + 30); 
-            } else {
-                
-                timeoutId = setTimeout(() => {
-                    if (!isActive) return;
-                    setCurrentChunkIndex(prev => prev + 1);
-                    setCurrentCharIndex(0);
-                }, 100);
-            }
-        } else {
-           
-            timeoutId = setTimeout(() => {
-                if (!isActive) return;
-                setTypedChunks([]);
-                setCurrentChunkIndex(0);
-                setCurrentCharIndex(0);
-            }, 5000); 
-        }
-
-        return () => {
-            isActive = false;
-            clearTimeout(timeoutId);
+        const handleMouseMove = (e) => {
+            const { clientX, clientY } = e;
+            const { innerWidth, innerHeight } = window;
+            const x = (clientX / innerWidth - 0.5) * 30;
+            const y = (clientY / innerHeight - 0.5) * 30;
+            setMousePos({ x, y });
         };
-    }, [currentChunkIndex, currentCharIndex]);
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
 
     return (
-        <div className="relative w-full flex items-center justify-center pointer-events-none select-none mt-20 pl-20">
-        
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/20 blur-[120px] rounded-full animate-pulse-slow"></div>
-
-       
-            <div className="relative w-full max-w-[600px] h-auto pb-10 glass-premium bg-[#0d1117]/90 rounded-2xl border border-white/10 shadow-[0_0_50px_rgba(59,130,246,0.15)] overflow-hidden animate-float z-20">
-               
-                <div className="px-4 py-3 bg-white/5 border-b border-white/10 flex items-center gap-2">
-                    <div className="flex gap-1.5">
-                        <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                        <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
-                        <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-                    </div>
-                    <div className="mx-auto flex items-center gap-2 bg-black/40 px-3 py-1 rounded-md">
-                        <FaReact className="text-[#61DAFB] text-xs animate-[spin_4s_linear_infinite]" />
-                        <span className="text-[10px] text-white/50 font-mono">App.tsx — SDS Technologies</span>
-                    </div>
-                </div>
-
-           
-                <div className="p-5 md:p-6 font-mono text-[9px] md:text-xs leading-relaxed overflow-hidden h-[320px]">
-                    <pre className="whitespace-pre-wrap font-inherit tracking-tight">
-                        {typedChunks.map((chunk, index) => (
-                            <span key={index} className={chunk.class}>{chunk.text}</span>
-                        ))}
-                       
-                        <span className="inline-block w-2.5 h-[14px] bg-white/80 animate-pulse ml-0.5 align-middle"></span>
-                    </pre>
-                </div>
-
+        <div className="relative w-full h-[600px] flex items-center justify-center perspective-[2500px] overflow-visible ml-20">
+            {/* Background Glows & Environment */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 blur-[180px] rounded-full animate-pulse opacity-40"></div>
             
-                <div className="absolute bottom-0 w-full px-4 py-1.5 bg-blue-500/10 border-t border-blue-500/20 flex justify-between items-center text-[9px] text-blue-300 font-mono">
-                    <div className="flex items-center gap-3">
-                        <span className="flex items-center gap-1"><div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div> SYNCED</span>
-                        <span>main*</span>
-                        <span className="text-white/30 hidden md:inline">UTF-8</span>
+            {/* Dark Floor / Reflection Surface */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-40 bg-gradient-to-t from-black/40 to-transparent blur-3xl opacity-60"></div>
+
+            {/* The 3D Laptop Meta-Container */}
+            <div 
+                className="relative z-10 w-full max-w-[700px] transition-transform duration-700 ease-out transform-gpu animate-laptop-3d"
+                style={{ 
+                    transformStyle: 'preserve-3d',
+                    transform: `rotateX(${10 - mousePos.y * 0.5}deg) rotateY(${-10 + mousePos.x * 0.5}deg)`
+                }}
+            >
+                {/* 1. Laptop Screen (Top Lid) */}
+                <div className="relative w-full aspect-[16/10] bg-slate-900 rounded-t-2xl border-x-[10px] border-t-[10px] border-slate-800 shadow-2xl overflow-hidden" 
+                     style={{ transformStyle: 'preserve-3d' }}>
+                    
+                    <div className="absolute inset-0 border border-white/5 rounded-t-xl z-20 pointer-events-none"></div>
+                    
+                    {/* The Display Area */}
+                    <div className="absolute inset-2 bg-[#050508] rounded-lg overflow-hidden flex flex-col">
+                        
+                        {/* Status Bar */}
+                        <div className="h-6 w-full bg-white/[0.03] border-b border-white/5 flex items-center justify-between px-3">
+                            <div className="flex gap-1.5">
+                                <div className="w-1.5 h-1.5 rounded-full bg-red-400 opacity-60"></div>
+                                <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 opacity-60"></div>
+                                <div className="w-1.5 h-1.5 rounded-full bg-green-400 opacity-60"></div>
+                            </div>
+                            <div className="text-[7px] text-white/30 tracking-[0.3em] font-black">SDS_WORKSTATION_PRO</div>
+                            <div className="text-[7px] text-primary/60 font-bold">LIVE_SESSION</div>
+                        </div>
+
+                        {/* Screen Content: Live Metrics Visualization */}
+                        <div className="flex-1 p-5 overflow-hidden relative">
+                            <div className="grid grid-cols-12 gap-4 h-full">
+                                <div className="col-span-1 space-y-3 pt-2 opacity-30">
+                                    {[...Array(5)].map((_, i) => (
+                                        <div key={i} className="w-full aspect-square bg-white/10 rounded-md"></div>
+                                    ))}
+                                </div>
+                                
+                                <div className="col-span-11 space-y-4">
+                                    <div className="flex gap-4 h-24">
+                                        <div className="flex-1 glass-premium rounded-xl p-3 border-white/5 bg-white/[0.01]">
+                                            <div className="text-[7px] text-white/30 mb-2 uppercase tracking-widest">Network Performance</div>
+                                            <div className="flex items-end gap-1 h-10">
+                                                {[...Array(15)].map((_, i) => (
+                                                    <div key={i} className="flex-1 bg-primary/40 rounded-t-[1px]" style={{ height: `${Math.random() * 100}%` }}></div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div className="w-24 glass-premium rounded-xl p-3 border-white/5 bg-white/[0.01] flex flex-col justify-center items-center">
+                                            <div className="text-[7px] text-white/30 mb-1">HEALTH</div>
+                                            <div className="text-xl font-black text-green-400 shadow-[0_0_10px_rgba(74,222,128,0.3)]">99%</div>
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-2 gap-4 h-full pb-10">
+                                        <div className="glass-premium rounded-xl p-4 border-white/5 bg-white/[0.01] font-mono text-[8px] text-primary/60 overflow-hidden leading-relaxed">
+                                            <div className="text-white/40 mb-2">// sds_init_handshake.js</div>
+                                            {[
+                                                "const node = await sds.connect();",
+                                                "if (node.secure) {",
+                                                "  global.sync(protocol_v2);",
+                                                "  console.log('Core Active');",
+                                                "}"
+                                            ].map((line, i) => (
+                                                <div key={i} className="h-3 overflow-hidden whitespace-nowrap">{line}</div>
+                                            ))}
+                                            <div className="w-1 h-3 bg-primary/40 animate-pulse inline-block"></div>
+                                        </div>
+                                        <div className="flex flex-col gap-3">
+                                            {[
+                                                { label: "Deployment", val: "ACTIVE", color: "text-blue-400" },
+                                                { label: "Security", val: "ULTRA_SECURE", color: "text-emerald-400" },
+                                                { label: "Cloud Node", val: "SYNCED", color: "text-purple-400" }
+                                            ].map((m, i) => (
+                                                <div key={i} className="glass-premium flex-1 rounded-lg px-4 flex items-center justify-between border-white/5 bg-white/[0.01]">
+                                                    <span className="text-[7px] text-white/30 uppercase">{m.label}</span>
+                                                    <span className={`text-[8px] font-black ${m.color}`}>{m.val}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-lg">
+                            <div className="absolute top-0 h-full w-full bg-white/[0.02] animate-screen-glimmer"></div>
+                        </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                        <span>TypeScript React</span>
-                        <span>Prettier</span>
+                </div>
+
+                {/* 2. Laptop Keyboard Body (Bottom Case) */}
+                <div className="relative w-full h-24 bg-slate-800 border-x-4 border-b-8 border-slate-700 rounded-b-3xl shadow-[0_30px_70px_rgba(0,0,0,0.9)]"
+                     style={{ transform: 'rotateX(-65deg) translateY(-30px)', transformOrigin: 'top center', transformStyle: 'preserve-3d' }}>
+                    
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-32 h-14 bg-white/[0.02] border border-white/5 rounded-lg"></div>
+                    
+                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4/5 h-16 grid grid-cols-12 gap-1.5 opacity-40">
+                        {[...Array(36)].map((_, i) => (
+                            <div key={i} className="bg-white/10 rounded-[1px] animate-key-glow" style={{ animationDelay: `${i * 0.1}s` }}></div>
+                        ))}
                     </div>
+
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-primary/5 blur-2xl -z-10"></div>
                 </div>
             </div>
 
-           
-            <div className="absolute w-14 h-14 glass-premium rounded-xl bg-slate-900/80 backdrop-blur-md flex items-center justify-center shadow-lg -top-20 -right-4 md:-right-16 animate-float border border-white/5 mt-40" style={{ animationDelay: '0.2s' }}>
-                <FaReact className="text-[#61DAFB] text-3xl animate-[spin_6s_linear_infinite]" />
-            </div>
-            <div className="absolute w-14 h-14 glass-premium rounded-xl bg-slate-900/80 backdrop-blur-md flex items-center justify-center shadow-lg top-1/4 -left-6 md:-left-0 animate-float-slow border border-white/5" style={{ animationDelay: '0.7s' }}>
-                <FaNodeJs className="text-[#339933] text-2xl" />
+            {/* Orbiting App Shards & Tech Icons */}
+            <div className="absolute inset-0 pointer-events-none overflow-visible">
+                <div className="absolute top-10 left-0 md:left-10 lg:left-20 animate-window-drift z-20">
+                    <div className="glass-premium p-6 rounded-2xl border-white/10 shadow-2xl backdrop-blur-3xl hover:border-primary/50 transition-all cursor-default bg-slate-900/40">
+                        <FaChartBar className="text-primary text-3xl mb-4" />
+                        <div className="text-xl font-black text-white">99.9%</div>
+                        <div className="text-[9px] font-black text-white/30 uppercase tracking-[0.3em]">Uptime Matrix</div>
+                    </div>
+                </div>
+
+                <div className="absolute bottom-20 right-0 md:right-10 lg:right-20 animate-window-drift z-20" style={{ animationDelay: '-4s' }}>
+                    <div className="glass-premium p-6 rounded-2xl border-white/10 shadow-2xl backdrop-blur-3xl hover:border-secondary/50 transition-all cursor-default bg-slate-900/40">
+                        <FaShieldAlt className="text-secondary text-3xl mb-4" />
+                        <div className="text-xl font-black text-white">Encrypted</div>
+                        <div className="text-[9px] font-black text-white/30 uppercase tracking-[0.3em]">Neural Shield</div>
+                    </div>
+                </div>
+
+                <div className="absolute top-1/4 right-32 animate-pulse transition-opacity delay-300 opacity-60">
+                    <SiReact className="text-primary text-4xl" />
+                </div>
+                <div className="absolute bottom-1/4 left-32 animate-pulse transition-opacity delay-700 opacity-60">
+                    <SiNodedotjs className="text-green-500 text-4xl" />
+                </div>
             </div>
 
-            <div className="absolute w-14 h-14 glass-premium rounded-xl bg-slate-900/80 backdrop-blur-md flex items-center justify-center shadow-lg bottom-1/4 -right-2 md:-right-14 animate-float border border-white/5 ml-40" style={{ animationDelay: '1.2s' }}>
-                <FaAws className="text-[#FF9900] text-3xl" />
+            <div className="absolute bottom-0 right-[15%] glass-premium px-6 py-3 rounded-full border-white/10 flex items-center gap-4 animate-fadeIn shadow-2xl z-40 transform-gpu hover:bg-white/5 transition-all">
+                <div className="relative">
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                    <div className="absolute inset-0 bg-emerald-500 rounded-full animate-ping opacity-20"></div>
+                </div>
+                <span className="text-[10px] font-black text-white/60 tracking-[0.2em] uppercase italic">Secure_Environment: Identified</span>
             </div>
-
-            <div className="absolute w-12 h-12 glass-premium rounded-xl bg-slate-900/80 backdrop-blur-md flex items-center justify-center shadow-lg -bottom-6 left-10 md:left-4 animate-float-slow border border-white/5" style={{ animationDelay: '0.4s' }}>
-                <SiTypescript className="text-[#3178C6] text-2xl" />
-            </div>
-
-            <div className="absolute w-10 h-10 glass-premium rounded-xl bg-slate-900/80 backdrop-blur-md flex items-center justify-center shadow-lg -bottom-16 left-1/4 animate-float border border-white/5" style={{ animationDelay: '1.5s' }}>
-                <SiMongodb className="text-[#47A248] text-xl" />
-            </div>
-
-       
-            <div className="absolute -top-16 right-0 glass-premium border-white/5 px-4 py-2 rounded-full flex items-center gap-3 animate-fadeInRight shadow-xl z-30" style={{ animationDelay: '1s' }}>
-                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-[pulse_1.5s_ease-in-out_infinite]"></div>
-                <span className="text-[9px] font-bold text-white/70 tracking-[0.2em] uppercase">Build: Success</span>
-            </div>
-
-            <div className="absolute bottom-10 -left-6 md:-left-10 glass-premium border-white/5 px-4 py-2 rounded-full flex items-center gap-2 animate-fadeInLeft shadow-xl z-30" style={{ animationDelay: '1.5s' }}>
-                <span className="text-[10px] text-blue-400">⚡</span>
-                <span className="text-[9px] font-bold text-white/50 tracking-widest uppercase">99.9% Uptime</span>
-            </div>
-
         </div>
     );
 };

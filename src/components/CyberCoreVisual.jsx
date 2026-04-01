@@ -20,8 +20,8 @@ const CyberCoreVisual = () => {
                     <div className="absolute inset-4 bg-primary/5 border border-primary/20 rounded-[1.5rem] rotate-45"></div>
                     
                    
-                    <div className="relative z-10 text-6xl font-black text-white tracking-tighter animate-logo-shimmer">
-                        SDS
+                    <div className="relative z-10 text-5xl font-black text-white tracking-tighter animate-logo-shimmer">
+                        CORE
                     </div>
 
                    

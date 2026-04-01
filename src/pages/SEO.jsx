@@ -102,9 +102,9 @@ const SEO = () => {
                 <div className="relative z-10 w-full flex flex-col md:flex-row justify-between px-6 md:px-16 items-center gap-10 md:gap-0">
                    <div className="p-3 md:p-4 rounded-xl bg-black/40 border border-white/10 backdrop-blur-md animate-fadeInLeft w-full md:w-auto text-center md:text-left">
                       <span className="text-[6px] md:text-[7px] font-mono text-primary/60 block mb-1">NODE_INIT</span>
-                      <div className="text-[10px] md:text-xs font-bold text-white uppercase tracking-tighter">RESEARCH_PHASE</div>
+    <div className="text-[10px] md:text-xs font-bold text-white uppercase tracking-tighter">RESEARCH_PHASE</div>
                       <div className="mt-2 h-1 w-full bg-white/5 rounded-full">
-                        <div className="h-full bg-primary/40 w-full animate-pulse"></div>
+     <div className="h-full bg-primary/40 w-full animate-pulse"></div>
                       </div>
                    </div>
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import BlueprintBackground from "../components/BlueprintBackground";
 import { Link } from "react-router-dom";
+import TrustVisual from '../components/TrustVisual';
 
 const Services = () => {
     const services = [
@@ -353,17 +354,7 @@ const Services = () => {
                                 </div>
                             </div>
                             <div className="flex-1 w-full relative">
-
-                                <div className="relative aspect-square max-w-md mx-auto">
-                                    <div className="absolute inset-0 border-[20px] border-white/5 rounded-full animate-rotateCustom"></div>
-                                    <div className="absolute inset-10 border-[1px] border-primary/20 rounded-full animate-heroPulse"></div>
-                              
-                                    <div className="absolute inset-20 bg-accent-gradient rounded-full opacity-10 animate-pulse"></div>
-                                    <div className="absolute inset-0 flex items-center justify-center">
-
-                                        <div className="text-8xl font-black text-white/10 select-none">SDS</div>
-                                    </div>
-                                </div>
+                                <TrustVisual />
                             </div>
                         </div>
                     </div>

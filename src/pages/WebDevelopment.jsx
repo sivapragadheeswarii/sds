@@ -65,13 +65,13 @@ const WebDevelopment = () => {
           <div className="container-custom">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               {features.map((feature, i) => (
+                
                 <div 
                   key={i} 
                   className="stagger-reveal animate-stagger"
                   style={{ animationDelay: `${i * 0.1}s` }}
                 >
                   <div className="glass-premium rounded-3xl p-0 overflow-hidden border border-white/5 hover:border-primary/40 shadow-2xl transition-all duration-700 card-3d bg-slate-900/40 backdrop-blur-xl group">
-                    {/* Technical Top Bar */}
                     <div className="flex items-center justify-between px-6 py-3 border-b border-white/5 bg-black/20">
                       <span className="text-[10px] font-mono text-primary/60 tracking-widest uppercase">{feature.id}</span>
                       <div className="flex items-center gap-1.5">
@@ -95,7 +95,7 @@ const WebDevelopment = () => {
             </div>
           </div>
         </section>
-        {/* -------------------------------------------------------------------------------------------------------------------------------------------------------- */}
+  {/* -------------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
         <section className="py-24 bg-white/[0.02] border-y border-white/5">
           <div className="container-custom">
@@ -114,13 +114,16 @@ const WebDevelopment = () => {
             </div>
           </div>
         </section>
-        {/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */}
+
+  {/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */}
 
         <section className="py-24 relative overflow-hidden">
           <div className="container-custom">
             <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-20">
               <div className="flex-1 space-y-6 md:space-y-8 text-center lg:text-left">
+
                 <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight">From Concept to <span className="text-primary">Cloud</span></h2>
+               
                 <p className="text-muted text-base md:text-lg leading-relaxed">
                   Our web development workflow is built on agile principles, ensuring rapid delivery without compromising on quality or security. Every project undergoes rigorous testing and optimization before it hits production.
                 </p>
@@ -133,8 +136,7 @@ const WebDevelopment = () => {
               </div>
               <div className="flex-1 w-full flex justify-center">
                 <div className="w-full max-w-lg aspect-square glass-premium rounded-3xl md:rounded-[3rem] border border-white/10 relative overflow-hidden group bg-slate-900/40 backdrop-blur-2xl shadow-2xl flex items-center justify-center p-6 md:p-8">
-                  {/* SVG Schematic Layer */}
-                  <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 400 400">
+                 <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 400 400">
                     <defs>
                       <filter id="webGlow">
                         <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
@@ -145,15 +147,13 @@ const WebDevelopment = () => {
                       </filter>
                     </defs>
 
-                    {/* Connection Flux Paths */}
                     <g className="stroke-primary/20 fill-none stroke-px">
                       <path d="M 200 200 L 100 100" />
                       <path d="M 200 200 L 300 100" />
                       <path d="M 200 200 L 100 300" />
                       <path d="M 200 200 L 300 300" />
                     </g>
-
-                    {/* Flux Pulses */}
+ 
                     <circle r="2" fill="var(--primary)" filter="url(#webGlow)">
                       <animateMotion dur="2s" repeatCount="indefinite" path="M 200 200 L 100 100" />
                     </circle>
@@ -168,9 +168,9 @@ const WebDevelopment = () => {
                     </circle>
                   </svg>
 
-                  {/* Architecture Nodes */}
+ 
                   <div className="relative z-10 w-full h-full flex items-center justify-center scale-75 md:scale-100">
-                    {/* Central Backbone */}
+
                     <div className="relative">
                       <div className="w-20 h-20 md:w-24 md:h-24 rounded-3xl bg-primary/10 border border-primary/30 flex items-center justify-center relative animate-pulse shadow-[0_0_50px_rgba(0,210,255,0.2)]">
                         <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-primary/10 border-dashed animate-spin-slow absolute"></div>
@@ -178,8 +178,7 @@ const WebDevelopment = () => {
                       </div>
                       <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[6px] md:text-[8px] font-mono text-white/30 tracking-[0.2em] md:tracking-[0.3em] uppercase whitespace-nowrap">PLATFORM_CORE</div>
                     </div>
-
-                    {/* Peripheral Clusters - Corners */}
+                  
                     <div className="absolute top-0 left-0 group/node text-center">
                       <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lg md:text-xl group-hover/node:border-primary/50 transition-colors">🌐</div>
                       <span className="text-[6px] md:text-[7px] font-mono text-primary/60 mt-1 md:mt-2 block">CDN</span>
@@ -201,7 +200,6 @@ const WebDevelopment = () => {
                     </div>
                   </div>
 
-                  {/* Real-time Status Overlay */}
                   <div className="absolute top-4 right-4 md:right-6 flex items-center gap-1 md:gap-2">
                     <div className="w-0.5 md:w-1 h-2 md:h-3 bg-primary/40 animate-pulse"></div>
                     <div className="w-0.5 md:w-1 h-4 md:h-5 bg-primary/60 animate-pulse" style={{ animationDelay: '0.2s' }}></div>
@@ -213,8 +211,7 @@ const WebDevelopment = () => {
             </div>
           </div>
         </section>
-
-        {/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
+  {/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
         <section className="py-20">
           <div className="container-custom">
             <div className="glass-premium p-8 md:p-12 rounded-3xl md:rounded-[50px] text-center border border-primary/20 bg-primary/[0.02]">
